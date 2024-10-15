@@ -178,14 +178,72 @@ Note that we don;t have an inner product on \(V\) so far. For any \(\bm{x},\bm{y
 
 (e) Prove \((f(\bm{x}, \bm{y}))^2 \leq f(\bm{x}, \bm{x})f(\bm{y}, \bm{y})\) for all \(\bm{x}, \bm{y} \in V\)
 
-(c)(d)(e) together with some other technique can show that \(f(\alpha )\)
+(c)(d)(e) together with some other technique can show that \(f(\alpha \bm{x} + \beta \bm{y}, \bm{z})  = \alpha f(\bm{x}, \bm{z}) + \beta f(\bm{y}, \bm{z})\).
 
 \subsection*{Answer}
 (a) 
 \begin{align*}
-    f(\bm{x}, \bm{x}) = \frac 1 2 (\|\bm{x}+\bm{x}\|^2 - \|\bm{x}\|^2 - \|\bm{y}\|^2 )
+    f(\bm{x}, \bm{x}) &= \frac 1 2 (\|\bm{x}+\bm{x}\|^2 - \|\bm{x}\|^2 - \|\bm{x}\|^2 ) \\
+    f(\bm{x}, \bm{x}) &= \frac 1 2 (4\|\bm{x}\|^2 - \|\bm{x}\|^2 - \|\bm{x}\|^2 ) \\
+    f(\bm{x}, \bm{x}) &= \frac 1 2 (2\|\bm{x}\|^2) \\
+    f(\bm{x}, \bm{x}) &= \|\bm{x}\|^2 \\
+    \|\bm{x}\|^2 &\geq 0 
 \end{align*}
+We know that:
+\begin{align}
+    \|\bm{x}\| = 0 \iff \bm{x} = \bm{0}
+\end{align}
+s.t.
+\begin{align*}
+    \|\bm{x}\|^2 = 0 \iff \bm{x} = \bm{0}
+\end{align*}
+In conclusion, \(f(\bm{x}, \bm{x}) \geq 0\) for any \(\bm{x} \in V\), and \(f(\bm{x}, \bm{x}) = 0\) if and only if \(\bm{x} = 0\).
 
+(b) 
+We know that:
+\begin{align}
+    \|\bm{x} + \bm{y}\| = \|\bm{y} + \bm{x}\|
+\end{align}
+\begin{align*}
+    f(\bm{y},\bm{x}) &= \frac 1 2 (\|\bm{y} + \bm{x}\|^2 - \|\bm{y}\|^2 - \|\bm{x}\|^2)  \\
+    \frac 1 2 (\|\bm{y} + \bm{x}\|^2 - \|\bm{y}\|^2 - \|\bm{x}\|^2) &= \frac 1 2(\|\bm{x} + \bm{y}\|^2 - \|\bm{x}\|^2 - \|\bm{y}\|^2) \\
+    f(\bm{x}, \bm{y}) &= \frac 1 2 (\|\bm{x} + \bm{y}\|^2 - \|\bm{x}\|^2 - \|\bm{y}\|^2) \\
+\end{align*}
+\begin{align}
+    f(\bm{x}, \bm{y}) &= f(\bm{y}, \bm{x})
+\end{align}
+
+(c)
+\begin{align*}
+    f(\bm{x} + \bm{y}, \bm{z}) &= \frac 1 2 (\|\bm{x} + \bm{y} + \bm{z}\|^2 - \|\bm{x} + \bm{y}\|^2 - \|\bm{z}\|^2) \\
+    \frac 1 2 (\|\bm{x} + \bm{y} + \bm{z}\|^2 - \|\bm{x} + \bm{y}\|^2 - \|\bm{z}\|^2) &= \frac 1 2 (\|\bm{x} + \bm{y} + \bm{z}\|^2 - \|\bm{x} + \bm{y}\|^2 - \|\bm{z}\|^2) \\\\
+\end{align*}
+\begin{align*}
+    & f(\bm{x}, \bm{z}) + f(\bm{y}, \bm{z}) \\
+    &= \frac 1 2 (\|\bm{x} + \bm{z}\|^2 - \|\bm{x}\|^2 - \|\bm{z}\|^2) + \frac 1 2 (\|\bm{y} + \bm{z}\|^2 - \|\bm{y}\|^2 - \|\bm{z}\|^2) \\
+    &=\frac 1 2 (\|\bm{x} + \bm{z}\|^2 + \|\bm{y} + \bm{z}\|^2 - \|\bm{x}\|^2 - \|\bm{y}\|^2 - 2\|\bm{z}\|^2) \\ \\
+\end{align*}
+(d)
+We know(2),
+\begin{align}
+    \|\bm{x} + \bm{y}\|^2 = - \|\bm{x} - \bm{y}\|^2 + 2\|\bm{x}\|^2 + 2\|\bm{y}\|^2, \forall \bm{x}, \bm{y} \in \bm{V}.
+\end{align}
+s.t.
+\begin{align*}
+    f(\bm{x}, \bm{y}) &= \frac 1 2 (\|\bm{x} + \bm{y}\|^2 - \|\bm{x}\|^2 - \|\bm{y}\|^2) \\
+    &= \frac 1 2 (- \|\bm{x} - \bm{y}\|^2 + 2\|\bm{x}\|^2 + 2\|\bm{y}\|^2 - \|\bm{x}\|^2 - \|\bm{y}\|^2 )  \\
+    &= \frac 1 2 (- \|\bm{x} - \bm{y}\|^2 + \|\bm{x}\|^2 + \|\bm{y}\|^2)  \\
+    &= -\frac 1 2 (\|\bm{x} - \bm{y}\|^2 - \|\bm{x}\|^2 - \|\bm{y}\|^2)  \\
+    &= -\frac 1 2 (\|\bm{x} - \bm{y}\|^2 - \|\bm{x}\|^2 - \|-\bm{y}\|^2)  \\
+    &= -f(\bm{x}, -\bm{y}) \\
+    f(\bm{x}, \bm{y}) = -f(\bm{x}, -\bm{y})
+\end{align*}
+we know (9), s.t.
+\begin{align*}
+    f(\bm{x}, \bm{y}) = -f(\bm{x}, -\bm{y}) \equiv f(\bm{y}, \bm{x}) = -f(-\bm{y}, \bm{x})\\
+    f(-\bm{y}, \bm{x}) = -f(\bm{y}, \bm{x}) \equiv f(-\bm{x}, \bm{y}) = -f(\bm{x}, \bm{y}) \\
+\end{align*}
+In conclusion \(f(-\bm{x}, \bm{y}) = -f(\bm{x}, \bm{y})\)
 
 
 
