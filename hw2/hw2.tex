@@ -179,6 +179,10 @@ Note that we don;t have an inner product on \(V\) so far. For any \(\bm{x},\bm{y
 (e) Prove \((f(\bm{x}, \bm{y}))^2 \leq f(\bm{x}, \bm{x})f(\bm{y}, \bm{y})\) for all \(\bm{x}, \bm{y} \in V\)
 
 (c)(d)(e) together with some other technique can show that \(f(\alpha \bm{x} + \beta \bm{y}, \bm{z})  = \alpha f(\bm{x}, \bm{z}) + \beta f(\bm{y}, \bm{z})\).
+Therefore, we can finally prove \(f\) defines an inner product. This question showed that the parallelogram
+identity is also a sufficient condition for a norm to be induced by an inner product. Combined with
+the parallelogram law on inner product spaces, we see that the parallelogram identity is a necessary
+and sufficient condition for a norm to be an induced by an inner product.
 
 \subsection*{Answer}
 (a) 
@@ -215,19 +219,40 @@ We know that:
 
 (c)
 \begin{align*}
+    \|\bm{x} + \bm{y} + \bm{z}\|^2 + \|\bm{x} + \bm{y} - \bm{z}\|^2 &= 2\|\bm{x} + \bm{y}\|^2 + 2\|\bm{z}\|^2 \\
     f(\bm{x} + \bm{y}, \bm{z}) &= \frac 1 2 (\|\bm{x} + \bm{y} + \bm{z}\|^2 - \|\bm{x} + \bm{y}\|^2 - \|\bm{z}\|^2) \\
-    \frac 1 2 (\|\bm{x} + \bm{y} + \bm{z}\|^2 - \|\bm{x} + \bm{y}\|^2 - \|\bm{z}\|^2) &= \frac 1 2 (\|\bm{x} + \bm{y} + \bm{z}\|^2 - \|\bm{x} + \bm{y}\|^2 - \|\bm{z}\|^2) \\\\
+    f(\bm{x} + \bm{y}, \bm{z}) &= \frac 1 4 (\|\bm{x} + \bm{y} + \bm{z}\|^2 - \|\bm{x} + \bm{y} - \bm{z}\|^2) \tag{i}\\
 \end{align*}
 \begin{align*}
     & f(\bm{x}, \bm{z}) + f(\bm{y}, \bm{z}) \\
     &= \frac 1 2 (\|\bm{x} + \bm{z}\|^2 - \|\bm{x}\|^2 - \|\bm{z}\|^2) + \frac 1 2 (\|\bm{y} + \bm{z}\|^2 - \|\bm{y}\|^2 - \|\bm{z}\|^2) \\
-    &=\frac 1 2 (\|\bm{x} + \bm{z}\|^2 + \|\bm{y} + \bm{z}\|^2 - \|\bm{x}\|^2 - \|\bm{y}\|^2 - 2\|\bm{z}\|^2) \\ \\
+    &= \frac 1 4 (\|\bm{ x } + \bm{z}\|^2 - \|\bm{x} - \bm{z}\|^2) + \frac 1 4 (\|\bm{y} + \bm{z}\|^2 - \|\bm{y} - \bm{z}\|^2) \tag{ ii } \\
 \end{align*}
+\begin{align*}
+    &\|\bm{x}+\bm{y}+\bm{z}\|^2 = 2\|\bm{x} + \bm{z}\|^2 + 2\|\bm{y}\|^2 - \|\bm{x} - \bm{y} + \bm{z}\|^2 \\
+    &\|\bm{x}+\bm{y}+\bm{z}\|^2 = 2\|\bm{y} + \bm{z}\|^2 + 2\|\bm{x}\|^2 - \|-\bm{x} + \bm{y} + \bm{z}\|^2 \\
+    &\|\bm{x}+\bm{y}+\bm{z}\|^2 = \|\bm{x} + \bm{z}\|^2 + \|\bm{y} + \bm{z}\|^2 + \|\bm{x}\|^2 + \|\bm{y}\|^2 - \frac 1 2 (\|\bm{x} - \bm{y} + \bm{z}\|^2 + \|-\bm{x} + \bm{y} + \bm{z}\|^2)
+\end{align*} 
+\begin{align*} 
+    &\|\bm{x}+\bm{y}-\bm{z}\|^2 = 2\|\bm{x} - \bm{z}\|^2 + 2\|\bm{y}\|^2 - \|\bm{x} - \bm{y} - \bm{z}\|^2 \\
+    &\|\bm{x}+\bm{y}-\bm{z}\|^2 = 2\|\bm{y} - \bm{z}\|^2 + 2\|\bm{x}\|^2 - \|-\bm{x} + \bm{y} - \bm{z}\|^2 \\
+    &\|\bm{x}+\bm{y}-\bm{z}\|^2 = \|\bm{x} - \bm{z}\|^2 + \|\bm{y} - \bm{z}\|^2 + \|\bm{x}\|^2 + \|\bm{y}\|^2 - \frac 1 2 (\|\bm{x} - \bm{y} - \bm{z}\|^2 + \|-x + \bm{y} - \bm{z}\|^2) 
+\end{align*}
+\begin{align*}
+    &\|\bm{x} + \bm{y} + \bm{z}\|^2 - \|\bm{x} + \bm{y} -\bm{z}\|^2 = \|\bm{x} + \bm{z}\|^2 + \|\bm{y} + \bm{z}\|^2 - (\|\bm{x} - \bm{z}\|^2 + \|\bm{y} - \bm{z}\|^2 ) \\
+    &= (\|\bm{x} + \bm{z}\|^2 - \|\bm{x} - \bm{z}\|^2) + (\|\bm{y} + \bm{z}\|^2 -\|\bm{y} - \bm{z}\|^2 ) \tag{iii}
+\end{align*}
+We know (i),(ii),(iii) s.t.
+\begin{align*}
+    f(\bm{x} + \bm{y}, \bm{z}) =  f(\bm{x}, \bm{z}) + f(\bm{y}, \bm{z}) \\
+\end{align*}
+In conclusion, \(f(\bm{x}+\bm{y}, \bm{z}) = f(\bm{x}, \bm{z}) + f(\bm{y}, \bm{z})\) for all \( \bm{x}, \bm{y}, \bm{z}\in V\)
+
 (d)
 We know(2),
-\begin{align}
+\begin{align*}
     \|\bm{x} + \bm{y}\|^2 = - \|\bm{x} - \bm{y}\|^2 + 2\|\bm{x}\|^2 + 2\|\bm{y}\|^2, \forall \bm{x}, \bm{y} \in \bm{V}.
-\end{align}
+\end{align*}
 s.t.
 \begin{align*}
     f(\bm{x}, \bm{y}) &= \frac 1 2 (\|\bm{x} + \bm{y}\|^2 - \|\bm{x}\|^2 - \|\bm{y}\|^2) \\
@@ -245,7 +270,20 @@ we know (9), s.t.
 \end{align*}
 In conclusion \(f(-\bm{x}, \bm{y}) = -f(\bm{x}, \bm{y})\)
 
-
+(e)
+We know:
+\begin{align*}
+    \|x + y\| \leq \|x\| + \|y\|
+\end{align*}
+s.t.
+\begin{align*}
+    \|\bm{x} + \bm{y}\|^2 \leq \|\bm{x}\|^2 + \|\bm{y}\|^2 + 2\|\bm{x}\|\|\bm{y}\| \\
+    \|\bm{x} + \bm{y}\|^2 - \|\bm{x}\|^2 - \|\bm{y}\|^2 \leq 2\|\bm{x}\|\|\bm{y}\| \\
+    f(\bm{x}, \bm{y}) \leq \|\bm{x}\|\|\bm{y}\| \\
+    f(\bm{x}, \bm{y})^2 \leq \|\bm{x}\|^2\|\bm{y}\|^2 \\
+    f(\bm{x}, \bm{y})^2 \leq f(\bm{x}, \bm{x})f(\bm{y}, \bm{y}) \\
+\end{align*}
+In conclusion, \((f(\bm{x}, \bm{y}))^2 \leq f(\bm{x}, \bm{x})f(\bm{y}, \bm{y})\) for all \(\bm{x}, \bm{y} \in V\)
 
 
 \end{document}
