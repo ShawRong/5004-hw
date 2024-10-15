@@ -1,0 +1,193 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{bm}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+% 设置页边距
+\geometry{
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm,
+}
+
+\begin{document}
+
+\title{5004 Homework2}
+\author{RONG Shuo}
+\date{\today}
+\maketitle
+
+\section*{Question: 1}
+1. Let \((V, \|\cdot\|)\) be a normed vector space.
+
+(a) Prove that, for all \(\bm{x}, \bm{y} \in V\),
+\[
+    |\|\bm{x}\| - \|\bm{y}\|| \leq \|\bm{x} - \bm{y}\|.
+\]
+
+(b) Let \(\{\bm{x}_k\}_{k\in \N}\) be a convergent sequence in \(V\) with limit \(\bm{x} \in V\). Prove that
+\[
+    \lim_{k\to\infty}\|\bm{x}_k\| = \|\bm{x}\|.
+\]
+
+\textit{(Hint: Use part (a).)}
+
+\subsection*{Answer (a):}
+We know for every norm, 
+\begin{align}
+    \|\bm{x} + \bm{y}\| \leq \|\bm{x}\| + \|\bm{y}\| \\
+    \|-\bm{x}\| = \|\bm{x}\| 
+\end{align}
+For two vectors, \(\bm{x - y}, \bm{y}\), according to (1), we get:
+\begin{align*}
+    \|\bm{x} - \bm{y} + \bm{y}\| \leq \|\bm{x} - \bm{y}\| + \|\bm{y}\|  \\
+    \|\bm{x}\| \leq \|\bm{x} - \bm{y}\| + \|\bm{y}\|  \\
+    \|\bm{x}\| - \|\bm{y}\| \leq \|\bm{x} - \bm{y}\| 
+\end{align*}
+Similarly, for two vectors, \(\bm{y -x}, \bm{x}\), we have:
+\begin{align*}
+    \|\bm{y} - \bm{x} + \bm{x}\| \leq \|\bm{y} - \bm{x}\| + \|\bm{x}\|  \\
+    \|\bm{y}\| \leq \|\bm{y} - \bm{x}\| + \|\bm{x}\|  \\
+    \|\bm{y}\| - \|\bm{x}\| \leq \|\bm{y} - \bm{x}\| 
+\end{align*}
+We know (2), s.t.:
+\begin{align*}
+    \|\bm{y}\| - \|\bm{x}\| \leq \|\bm{x} - \bm{y}\| 
+\end{align*}
+Because of:
+\begin{align*}
+    \|\bm{x}\| - \|\bm{y}\| \leq \|\bm{x} - \bm{y}\|  \\
+    \|\bm{y}\| - \|\bm{x}\| \leq \|\bm{x} - \bm{y}\|  \\
+\end{align*}
+We can conclude:
+For all \(\bm{x}, \bm{y} \in V\),
+\begin{align}
+    |\|\bm{x}\| - \|\bm{y}\|| \leq \|\bm{x} - \bm{y}\|
+\end{align}
+
+\subsection*{Answer (b):}
+We know (3), and \(0 \leq |x|, \forall x \in \R\), s.t.
+\begin{align}
+    0 \leq |\|\bm{x}\| - \|\bm{y}\|| \leq \|\bm{x} - \bm{y}\| 
+\end{align}
+Since we know \(\bm{x}_k \to \bm{x}\), we have:
+\begin{align}
+    \lim_{k \to \infty}\|\bm{x}_k - \bm{x}\| = 0
+\end{align}
+According to (4), (5), we have:
+\begin{align*}
+    0 \leq |\|\bm{x}_k\| - \|\bm{x}\|| \leq \|\bm{x}_k - \bm{x}\| \\
+    0 \leq \lim_{k \to \infty}|\|\bm{x}_k\| - \|\bm{x}\|| \leq \lim_{k \to \infty}\|\bm{x}_k - \bm{x}\| \\
+    0 \leq \lim_{k \to \infty}|\|\bm{x}_k\| - \|\bm{x}\|| \leq 0\\
+    \lim_{k \to \infty}|\|\bm{x}_k\| - \|\bm{x}\|| = 0  \\
+    \lim_{k \to \infty}\|\bm{x}_k\| = \|\bm{x}\|
+\end{align*}
+\section*{Question 2:}
+
+2. Let \(V\) be a vector space and \(\{\bm{a}_1,\bm{a}_2,\cdots,\bm{a}_n\}\) be a basis of \(V\). If \(
+\bm{u} = u_1\bm{a}_1 + \cdots + u_n\bm{a}_n\) and \(\bm{v} = v_1\bm{a}_1 + \cdots + v_n\bm{a}_n\) are two vectors in \(V\), define
+
+\[
+    \langle \bm{u}, \bm{v}\rangle = u_1v_1 + \cdots + u_nv_n.
+\]
+
+Show that this is an inner product on V.
+
+\subsection*{Answer:}
+\subsubsection*{Positive Definite Property:}
+For any \(\bm{u} \in V\), we know:
+\begin{align}
+    u_k^2 \geq 0, \forall u_k \in \R
+\end{align}
+s.t.
+\begin{align*}
+    \langle\bm{u}, \bm{u} \rangle  = u_1^2 + \cdots + u_n^2 \geq 0 
+\end{align*}
+For any \(\bm{u} = \bm{0}\) , we have:
+\begin{align*}
+    \langle \bm{u},\bm{u} \rangle = 0 + \cdots + 0 = 0
+\end{align*}
+For any \(\langle\bm{u}, \bm{u}\rangle = 0\) and (6), we have:
+\begin{align*}
+    \langle\bm{u}, \bm{u}\rangle = 0 \\
+    u_1^2 + \cdots + u_n^2 = 0
+\end{align*}
+
+Assume for the sake of contradiction that there exists at least one \(u_j > 0\) for some \(j \in \{1, 2, \cdots, n\}\).
+
+Since \(u_j > 0\), we can express it as:
+\begin{align*}
+    u_j &= c &\text{ where } c > 0.  \\
+    u_1 + u_2 + \cdots + u_n &= u_1 + u_2 + \cdots + u_{j - 1} + c + u_{j + 1} +\cdots +  u_n. \\
+    u_1 + u_2 + \cdots + u_{j-1} + c + u_{j+1} + \cdots + u_n &\geq c, &\text{ Since } u_k \geq 0, \forall k \\
+\end{align*}
+This contradicts the initial condition. \(u_1 + u_2 + \cdots + u_n = 0\).
+
+In conclusion:
+\begin{align*}
+    \langle\bm{u}, \bm{u} \rangle \geq 0, \forall \bm{u} \in V. \\
+    \langle\bm{u}, \bm{u}\rangle = 0 \iff \bm{u} = 0.
+\end{align*}
+
+\subsubsection*{Symmetric:}
+\begin{align*}
+    \langle\bm{u}, \bm{v} \rangle &= u_1v_1 + \cdots + u_nv_n \\
+    u_1v_1 + \cdots + u_nv_n &= v_1u_1 + \cdots + v_nu_n \\
+    \langle\bm{v}, \bm{u} \rangle &= v_1u_1 + \cdots + v_nu_n \\
+    \langle\bm{u}, \bm{v} \rangle &= \langle\bm{v}, \bm{u} \rangle \\
+\end{align*}
+In conclusion:
+\[
+    \langle\bm{u}, \bm{v} \rangle = \langle\bm{v}, \bm{u} \rangle \\
+\]
+
+\subsubsection*{Linearity:}
+\begin{align*}
+    \langle \alpha \bm{u} + \beta \bm{v}, \bm{w}\rangle &= \sum_{i=1}^{n} (\alpha u_i + \beta v_i) w_i \\
+    \sum_{i=1}^{n} (\alpha u_i + \beta v_i) w_i  &= \sum_{i=1}^{n} (\alpha u_i w_i) + (\beta v_i w_i) \\
+    \sum_{i=1}^{n} (\alpha u_i w_i) + (\beta v_i w_i) &= \alpha \sum_{i=1}^{n}u_iw_i + \beta \sum_{i=1}^{n}v_iw_i\\
+    \alpha \sum_{i=1}^{n}u_iw_i + \beta \sum_{i=1}^{n}v_iw_i &=  \alpha \langle\bm{u}, \bm{w}\rangle + \beta \langle\bm{v}, \bm{w}\rangle \\
+\end{align*}
+In conclusion:
+\[
+    \langle \alpha \bm{u} + \beta \bm{v}, \bm{w} \rangle =  \alpha \langle\bm{u}, \bm{w}\rangle + \beta \langle\bm{v}, \bm{w}\rangle \\
+\]
+
+\subsection*{Question 3:}
+3. Let \(V\) be a vector space with a norm \(\|\cdot\|\) that satisfies the parallelogram identity
+\[
+    \|\bm{x} + \bm{y}\|^2 + \|\bm{x} - \bm{y}\|^2 = 2\|\bm{x}\|^2 + 2\|\bm{y}\|^2, \forall \bm{x}, \bm{y} \in \bm{V}.
+\]
+Note that we don;t have an inner product on \(V\) so far. For any \(\bm{x},\bm{y} \in V\), define
+\[
+    f(\bm{x}, \bm{y}) := \frac 1 2 (\|\bm{x} + \bm{y}\|^2 - \|\bm{x}\|^2 - \|\bm{y}\|^2)
+\]
+(a) Prove \(f(\bm{x}, \bm{x}) \geq 0\) for any \(\bm{x} \in V\), and \(f(\bm{x}, \bm{x}) = 0\) if and only if \(\bm{x} = 0\).
+
+(b) Prove \(f(\bm{x}, \bm{y}) = f(\bm{y}, \bm{x})\) for all \(\bm{x}, \bm{y} \in V\)
+
+(c) Prove \(f(\bm{x}+\bm{y}, \bm{z}) = f(\bm{x}, \bm{z}) + f(\bm{y}, \bm{z})\) for all \( \bm{x}, \bm{y}, \bm{z}\in V\)
+
+(d) Prove \(f(-\bm{x}, \bm{y}) = -f(\bm{x}, \bm{y})\) for \(\bm{x}, \bm{y}\in V\)
+
+(e) Prove \((f(\bm{x}, \bm{y}))^2 \leq f(\bm{x}, \bm{x})f(\bm{y}, \bm{y})\) for all \(\bm{x}, \bm{y} \in V\)
+
+(c)(d)(e) together with some other technique can show that \(f(\alpha )\)
+
+\subsection*{Answer}
+(a) 
+\begin{align*}
+    f(\bm{x}, \bm{x}) = \frac 1 2 (\|\bm{x}+\bm{x}\|^2 - \|\bm{x}\|^2 - \|\bm{y}\|^2 )
+\end{align*}
+
+
+
+
+
+\end{document}
