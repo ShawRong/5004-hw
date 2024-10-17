@@ -119,15 +119,15 @@ For any \(\langle\bm{u}, \bm{u}\rangle = 0\) and (6), we have:
     u_1^2 + \cdots + u_n^2 = 0
 \end{align*}
 
-Assume for the sake of contradiction that there exists at least one \(u_j > 0\) for some \(j \in \{1, 2, \cdots, n\}\).
+Assume for the sake of contradiction that there exists at least one \(u_j \neq 0\) for some \(j \in \{1, 2, \cdots, n\}\).
 
-Since \(u_j > 0\), we can express it as:
+Since \(u_j^2 > 0\), we can express it as:
 \begin{align*}
-    u_j &= c &\text{ where } c > 0.  \\
-    u_1 + u_2 + \cdots + u_n &= u_1 + u_2 + \cdots + u_{j - 1} + c + u_{j + 1} +\cdots +  u_n. \\
-    u_1 + u_2 + \cdots + u_{j-1} + c + u_{j+1} + \cdots + u_n &\geq c, &\text{ Since } u_k \geq 0, \forall k \\
+    u_j^2 &= c &\text{ where } c > 0.  \\
+    u_1^2 + u_2^2 + \cdots + u_n^2 &= u_1^2 + u_2^2 + \cdots + u_{j - 1}^2 + c + u_{j + 1}^2 +\cdots +  u_n^2. \\
+    u_1^2 + u_2^2 + \cdots + u_{j-1}^2 + c + u_{j+1}^2 + \cdots + u_n^2 &\geq c, &\text{ Since } u_k^2 \geq 0, \forall k \\
 \end{align*}
-This contradicts the initial condition. \(u_1 + u_2 + \cdots + u_n = 0\).
+This contradicts the initial condition. \(u_1^2 + u_2^2 + \cdots + u_n^2 = 0\).
 
 In conclusion:
 \begin{align*}
