@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1729155849.59452 "/Users/apple/Desktop/latex/5004 hw/hw2/hw2.tex" "hw2.pdf" "hw2" 1729155850.30173 0
-  "/Users/apple/Desktop/latex/5004 hw/hw2/hw2.tex" 1729155849.33301 15030 2db5348d10bfb33bac9250e131b2bc50 ""
+["pdflatex"] 1729158560.69097 "/Users/apple/Desktop/latex/5004 hw/hw2/hw2.tex" "hw2.pdf" "hw2" 1729158561.43424 0
+  "/Users/apple/Desktop/latex/5004 hw/hw2/hw2.tex" 1729158560.42325 14840 8638f9794246a1b69c02c507c189a3c4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1246382020 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -71,8 +71,8 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1727453292.66454 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1727453153 8221411 6e9b128fa515d44182b0a6bc91111007 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "hw2.aux" 1729155850.21902 32 4d1825978335c8847f72f7c473f9edc8 "pdflatex"
-  "hw2.tex" 1729155849.33301 15030 2db5348d10bfb33bac9250e131b2bc50 ""
+  "hw2.aux" 1729158561.3305 32 4d1825978335c8847f72f7c473f9edc8 "pdflatex"
+  "hw2.tex" 1729158560.42325 14840 8638f9794246a1b69c02c507c189a3c4 ""
   (generated)
   "hw2.aux"
   "hw2.log"

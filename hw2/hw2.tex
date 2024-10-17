@@ -296,17 +296,15 @@ satisfying \(\left< \phi(\bm{x}), \phi(\bm{y})\right> = K(\bm{x}, \bm{y}) \) \\
 
 \subsection*{Answer :}
 \begin{align*}
-    e^{\bm{x}^T\bm{y}} &= 1 + \frac{\sum_{i=1}^{2}x_iy_i}{1!} + \frac{(\sum_{i=1}^{2}x_iy_i)^2}{2!} + \frac{(\sum_{i=1}^{2}x_iy_i)^3}{3!} + \cdots \\
-    &= \sum_{j=0}^{\infty}\frac {(\sum_{i=1}^{2}x_iy_i)^j} {j!} = \sum_{j=0}^{\infty}\frac {(x_1y_1 + x_2y_2)^j} {j!}  \\
-    &= \sum_{j=0}^{\infty} \frac {\sum_{i=0}^{j}\binom ji x_1^iy_1^ix_2^{j-i}y_2^{j-i}} {j!} \\
-    &= \sum_{j=0}^{\infty} \frac {\sum_{i=0}^{j}\binom ji x_1^ix_2^{j-i}y_1^iy_2^{j-i}} {j!}
+    e^{\bm{x}^T\bm{y}} &= \sum_{n=0}^{\infty} \frac {(\bm{x}^T\bm{y})^n} {n!}
 \end{align*}
-We can see that:
+And we know, the feature map of kernel function \(K(\bm{x}, \bm{y}) = \bm{x}^T\bm{y}\) is \(\phi(\bm{x}) = \bm{x}\) \\
+For \(K(\bm{x}, \bm{y}) = K_1(\bm{x}, \bm{y}) \cdot K_2(\bm{x}, \bm{y})\), the feature map is \(\phi(\bm{x}) = \phi_1(\bm{x}) \otimes \phi_2(\bm{x})\) \\
+As a result, we can define the feature map as
 \begin{align*}
-    \phi(\bm{x}) = \left(\frac {\binom{0}{0} x_1^0x_2^0}{0!} , \frac {\binom{1}{0} x_1^0x_2^1}{1!} , \frac {\binom{1}{1} x_1^1x_2^0}{1!} , \frac {\binom{2}{0} x_1^0x_2^2}{2!} , \frac {\binom{2}{1} x_1^1x_2^1}{2!} , \frac {\binom{2}{2} x_1^2x_2^0}{2!} , \frac {\binom{3}{0} x_1^0x_2^3}{3!} , \cdots\right)
-\end{align*}
-\begin{align*}
-    \phi(\bm{x}) = \bigcup_{n = 0}^{N}(\frac {\binom{n}{k} x_1^kx_2^{n-k}} {n!} :k=0, 1, \cdots, n)
+    \phi(\bm{x}) &= \left( 1, \bm{x}, \frac {1} {\sqrt{2!}} \bm{x} \otimes \bm{x}, \frac {1}{\sqrt 3!}\bm{x} \otimes \bm{x} \otimes \bm{x}, \cdots\right)   \\
+    &= (1, x_1, x_2, \frac {1}{\sqrt{2!}} x_1x_1, \cdots) \\
+    \text{where } \bm{x} &= (x_1, x_2), \bm{x} \otimes \bm{x} = (x_1x_1, x_1x_2, x_2x_1, x_2x_2) \cdots
 \end{align*}
 It is obvious that \(H\) with a standard inner product\(\left<\cdot\right>\):
 \begin{align*}
