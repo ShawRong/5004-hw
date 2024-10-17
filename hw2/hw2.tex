@@ -18,7 +18,7 @@
 
 \begin{document}
 
-\title{5004 Homework2}
+\title{5004 Homework 2}
 \author{RONG Shuo}
 \date{\today}
 \maketitle
@@ -39,7 +39,7 @@
 \textit{(Hint: Use part (a).)}
 
 \subsection*{Answer (a):}
-We know for every norm, 
+We begin by recalling two fundamental properties of norms:
 \begin{align}
     \|\bm{x} + \bm{y}\| \leq \|\bm{x}\| + \|\bm{y}\| \\
     \|-\bm{x}\| = \|\bm{x}\| 
@@ -159,7 +159,7 @@ In conclusion:
     \langle \alpha \bm{u} + \beta \bm{v}, \bm{w} \rangle =  \alpha \langle\bm{u}, \bm{w}\rangle + \beta \langle\bm{v}, \bm{w}\rangle \\
 \]
 
-\subsection*{Question 3:}
+\section*{Question 3:}
 3. Let \(V\) be a vector space with a norm \(\|\cdot\|\) that satisfies the parallelogram identity
 \[
     \|\bm{x} + \bm{y}\|^2 + \|\bm{x} - \bm{y}\|^2 = 2\|\bm{x}\|^2 + 2\|\bm{y}\|^2, \forall \bm{x}, \bm{y} \in \bm{V}.
@@ -285,7 +285,7 @@ s.t.
 \end{align*}
 In conclusion, \((f(\bm{x}, \bm{y}))^2 \leq f(\bm{x}, \bm{x})f(\bm{y}, \bm{y})\) for all \(\bm{x}, \bm{y} \in V\)
 
-\subsection*{Question 4:}
+\section*{Question 4:}
 Consider the kernel \(K(\bm{x}, \bm{y}) = e^{\bm{x}^T\bm{y}} \text{ for } \bm{x}, \bm{y} \in \R^2\). 
 Find an explicit feature space \(H\) (a Hilbert space)  
 and the feature map \(\phi : \R^2 \to H\)  
@@ -318,7 +318,7 @@ We know the induced norm:
     \|\phi(\bm{x})\| = e^{\frac {\bm{x}^T\bm{x}} 2}
 \end{align*}
 
-\subsection*{Question 5:}
+\section*{Question 5:}
 Let \(X \in \R^2\) be a two-dimensional input space, and consider the feature map: \(\phi: X \to \R^3\) defined by
 \begin{align*}
     \phi(\bm{x}) = (x_1^2, x_2^2, \sqrt 2 x_1x_2),
@@ -329,7 +329,7 @@ where \(\bm{x} = (x_1, x_2) \in \R^2\). We are given the function \(K\): \(\R^2 
 \end{align*}
 where \(\left<\cdot , \cdot\right>\) denotes the standard inner product in \(\R^3\). Prove that \(K\) is a kernel function.
 
-\subsection*{Answer :}
+\subsection*{Answer:}
 \begin{align*}
     K(\bm{x}, \bm{y}) &= \left< \phi(\bm{x}),\phi(\bm{y})\right> = \phi(\bm{x})^T\phi(\bm{y}) \\
     K(\bm{x}, \bm{y}) &= x_1^2y_1^2 + x_2^2y_2^2 + 2x_1x_2y_1y_2 \\
@@ -340,6 +340,13 @@ We know polynomial kernel:
 \begin{align*}
     K(\bm{x}, \bm{y}) = (\bm{x}^T\bm{y}+c)^d
 \end{align*}
-Obviously, \(K\) is a polynomial kernel. 
+with \(c=0\) and \(d=2\).
+
+Polynomial kernels are known to be valid kernel functions. They satisfy the necessary properties:
+
+1. Symmetry: \(K(\bm{x}, \bm{y}) = K(\bm{y}, \bm{x})\)
+2. Positive semi-definiteness: For any finite set of points \(\{\bm{x}_1, ..., \bm{x}_n\}\), the Gram matrix \(K_{ij} = K(\bm{x}_i, \bm{x}_j)\) is positive semi-definite.
+
+Therefore, \(K(\bm{x}, \bm{y}) = (\bm{x}^T\bm{y})^2\) is indeed a valid kernel function.
 
 \end{document}
