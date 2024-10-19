@@ -29,7 +29,7 @@ an n-vector \(\bm{a}\) for which \(f(\bm{x}) = \bm{a}^T\bm{x}\) for all \(\bm{x}
 (b) The difference of the last element and the first, \(f(\bm{x}) = x_n - x_1\). \\
 
 \section*{Answer :}
-(a)
+(a)  \\
 Take \(\bm{x} = (1, 2, 3)\) and \(\alpha = 1, \beta = 1\) for example:
 \begin{align*}
     f(\bm{x}) &= 3 - 1 = 2 \\
@@ -39,6 +39,30 @@ Take \(\bm{x} = (1, 2, 3)\) and \(\alpha = 1, \beta = 1\) for example:
     f(\bm{x}) + f(-\bm{x}) &= 2 + 2 = 4 \\
     f(\bm{x} + (-\bm{x})) &\neq f(\bm{x}) + f(-\bm{x}) \\
 \end{align*}
+In conclusion, \(f(\bm{x}) = max_kx_k - min_kx_k \) is not a linear function. \\
+
+(b) \\
+We know:
+\begin{align*}
+    \alpha \bm{x} + \beta \bm{y} = (\alpha x_1 + \beta y_1 , \cdots , \alpha x_n + \beta y_n)
+\end{align*}
+\begin{align*}
+    f(\bm{x}) = x_n - x_1 \\
+    f(\bm{y}) = y_n - y_1 
+\end{align*}
+\begin{align*}
+    f(\alpha \bm{x} + \beta \bm{y}) &= \alpha x_n + \beta y_n - (\alpha x_1 + \beta y_1)  \\
+    \alpha f(\bm{x}) + \beta f(\bm{y}) &= \alpha(x_n - x_1) + \beta(y_n - y_1)  \\
+    &= \alpha x_n + \beta y_n - (\alpha x_1 + \beta y_1) \\
+    f(\alpha \bm{x} + \beta \bm{y}) &= \alpha f(\bm{x}) + \beta f(\bm{y}).
+\end{align*}
+Let's denote \(\bm{e}_i\) as the vector in \(\R^n\) where the i-th entry is equal to 1, and all other entries are equal to 0.
+
+\begin{align*}
+    f(\bm{x}) = \bm{a}^T\bm{x} = (\bm{e}_n - \bm{e}_1)^T\bm{x}
+\end{align*}
+
+In conclusion, \(f(\bm{x}) = x_n - x_1\) is a linear function.
 
 
 \end{document}

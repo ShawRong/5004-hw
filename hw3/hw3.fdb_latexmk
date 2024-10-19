@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1729359974.67788 "/Users/apple/Desktop/latex/5004 hw/hw3/hw3.tex" "hw3.pdf" "hw3" 1729359975.07244 0
-  "/Users/apple/Desktop/latex/5004 hw/hw3/hw3.tex" 1729359974.48689 1336 09f6fcf4f291254fa9e1b2d0acb99d0a ""
+["pdflatex"] 1729361120.51173 "/Users/apple/Desktop/latex/5004 hw/hw3/hw3.tex" "hw3.pdf" "hw3" 1729361121.01295 0
+  "/Users/apple/Desktop/latex/5004 hw/hw3/hw3.tex" 1729361120.32887 2265 e41322c4a33bacbe298d5017afce91c6 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm" 1246382020 1120 200be8b775682cdf80acad4be5ef57e4 ""
@@ -36,6 +36,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty" 1644112042 7237 bdd120a32c8fdb4b433cf9ca2e7cd98a ""
   "/usr/local/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty" 1572645307 1057 525c2192b5febbd8c1f662c9468335bb ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1359763108 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
@@ -57,8 +58,8 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1727453292.66454 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1727453153 8221411 6e9b128fa515d44182b0a6bc91111007 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "hw3.aux" 1729359975.03777 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "hw3.tex" 1729359974.48689 1336 09f6fcf4f291254fa9e1b2d0acb99d0a ""
+  "hw3.aux" 1729361120.97608 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "hw3.tex" 1729361120.32887 2265 e41322c4a33bacbe298d5017afce91c6 ""
   (generated)
   "hw3.aux"
   "hw3.log"
