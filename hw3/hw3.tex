@@ -1,0 +1,44 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{bm}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+% 设置页边距
+\geometry{
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm,
+}
+
+\begin{document}
+
+\section*{Question 1:}
+Determine whether each of the following scalar-valued functions of \text{n-vectors} is linear. If it is a linear function, give its inner product representation, ie.,
+an n-vector \(\bm{a}\) for which \(f(\bm{x}) = \bm{a}^T\bm{x}\) for all \(\bm{x}\). If it is not linear, give specific \(\bm{x}, \bm{y}\), \(\alpha \text{ and } \beta\) such that
+\begin{align*}
+    f(\alpha \bm{x} + \beta \bm{y}) \neq \alpha f(\bm{x}) + \beta f(\bm{y}).
+\end{align*}
+
+(a) The spread of values of the vector, defined as \(f(\bm{x}) = max_kx_k - min_kx_k \). \\
+(b) The difference of the last element and the first, \(f(\bm{x}) = x_n - x_1\). \\
+
+\section*{Answer :}
+(a)
+Take \(\bm{x} = (1, 2, 3)\) and \(\alpha = 1, \beta = 1\) for example:
+\begin{align*}
+    f(\bm{x}) &= 3 - 1 = 2 \\
+    f(\bm{-x}) &= -1 + 3 = 2 \\
+    f(\bm{0}) &= 0 - 0 = 0 \\
+    f(\bm{x} + (-\bm{x})) &= f(\bm{0}) = 0 \\
+    f(\bm{x}) + f(-\bm{x}) &= 2 + 2 = 4 \\
+    f(\bm{x} + (-\bm{x})) &\neq f(\bm{x}) + f(-\bm{x}) \\
+\end{align*}
+
+
+\end{document}
