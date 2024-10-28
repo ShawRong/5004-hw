@@ -28,7 +28,7 @@ an n-vector \(\bm{a}\) for which \(f(\bm{x}) = \bm{a}^T\bm{x}\) for all \(\bm{x}
 (a) The spread of values of the vector, defined as \(f(\bm{x}) = max_kx_k - min_kx_k \). \\
 (b) The difference of the last element and the first, \(f(\bm{x}) = x_n - x_1\). \\
 
-\section*{Answer :}
+\subsection*{Answer :}
 (a)  \\
 Take \(\bm{x} = (1, 2, 3)\) and \(\alpha = 1, \beta = 1\) for example:
 \begin{align*}
@@ -63,6 +63,99 @@ Let's denote \(\bm{e}_i\) as the vector in \(\R^n\) where the i-th entry is equa
 \end{align*}
 
 In conclusion, \(f(\bm{x}) = x_n - x_1\) is a linear function.
+
+\section*{Question 2:}
+Consider the regression model \(y = \bm{x}^T \bm{a} + b\), where \(y\) is the predicted response,
+\(\bm{x}\) is an 8-vector of features, \(\bm{a}\) is an 8-vector of coefficients, and b is the offest term.
+Determine with reasoning whether each of the following statements is true or false.
+
+(a) If \(a_3 > 0 \text{ and } x_3 > 0, \text{ then } y \geq 0\)
+
+(b) If \(a_2 = 0\) then the prediction \(y\) does not depend on the second feature \(x_2\).
+
+(c) If \(a_6 = -0.8\), then increasing \(x_6\) (keeping all other \(x\) is the same) will decrease \(y\).
+
+\subsection*{Answer:}
+(a) False. 
+
+From the condition, we can deduce that \(a_3x_3 > 0\).
+but we can not deduce \(\sum_{i = 1, i \neq 3}^{8}a_ix_i > 0\) and \(b > 0\).
+Thus, we can not ensure \(y = \sum_{i = 1, i \neq 3}^{8}a_ix_i + b + a_3b_3 > 0\).
+
+(b) True.
+
+From the condition, we can deduce that \(y = \sum_{i = 1, i \neq 2}^{8} a_ix_i + b\),
+which implies that \(y\) does not depend on the second feature \(x_2\)
+
+(c) True.
+
+Assume \(x_6' = x_6 + d, d > 0\), we know \(y' = \sum_{i=0}^{8} a_ix_i + d = y + d\).
+\(y' - y = d > 0\)
+
+We can conclude that increasing \(x_6\) will decrease y.
+
+\section*{Question 3:}
+In linear regression models, we consider two data points \((\bm{x}_1, y_1)\) and \((\bm{x}_2, y_2)\) with \(\bm{x}_1, \bm{x}_2 \in \R^2\)
+and \(y_1, y_2 \in \R\). For simplicity, we set the bias term \(b = 0\). Let \(\bm{X} \in \R^{2 \times 2}\) have rows \(\bm{x}_1^T\) and \(\bm{x}_2^T\),
+and let \(\bm{y} = \begin{bmatrix}
+    y_1 \\
+    y_2 \\
+\end{bmatrix} \in \R^2\). Assume the columns of \(\bm{X}\), denoted by \(\bm{x}^{(1)}\) and \(\bm{x}^{(2)}\), are linearly dependent such that
+\(\bm{x}^{(1)} = 2\bm{x}^{(2)}\).
+
+(a) Consider the least squares estimation:
+\begin{align}
+    \text{min}_{\beta \in \R^2}\|\bm{X}\beta - \bm{y}\|_2^2 
+\end{align}
+What problem does the linear dependency among the columns of \(\bm{X}\) cause when estimating \(\bm{\beta}\) using least squares?
+
+(b) Now consider the ridge regression, which incorporates a regularization term:
+
+\begin{align}
+    \text{min}_{\beta \in \R^2}\|\bm{X}\bm{\beta} - \bm{y}\|_2^2 + \lambda\|\bm{\beta}\|_2^2,
+\end{align}
+
+where \(\lambda > 0\) is a regularization parameter. Derive the solution \(\hat{\bm{\beta}}\) of (2). What is the ratio between \(\hat{\beta}_1\) adn \(\hat{\beta}_2\)?
+
+(c) Discuss how varying the value of \(\lambda\) affects the solution and its ability to mitigate issues arising from linear dependency of columns of \(\bm{X}\).
+
+\subsection*{Answer}
+todo
+
+\section*{Question 4:}
+Let \(\left\{(\bm{x}_i, y_i)\right\}_{i=1}^N\) be given with \(\bm{x}_i \in \R^n\) and \(y_i \in \R\). Consider the soft-SVM:
+\begin{align*}
+    \min_{a\in\R^n, b\in \R} \sum_{i=1}^N h(y_i(\langle \bm{a}, \bm{x}_i\rangle) + b) - 1 + \lambda\|\bm{a}\|_2^2,
+\end{align*}
+where \(\lambda \in \R\) is a regularization parameter and \(h(t) = \max\{0, -t\}\) is the hinge loss function. Prove that solving the above soft-SVM is equivalent to solving the following problem:
+\begin{align*}
+    &\min_{\bm{a} \in R^n, b \in \R, \bm{\xi} \in \R^N} \sum_{i = 1}^N \xi + \lambda\|\bm{a}\|_2^2, \\
+    &\text{s.t. } y_i(\langle \bm{a}, \bm{x}_i\rangle + b) \geq 1 - \xi_i \text{ and } \xi_i \geq 0, i = 1,2,\cdots,N
+\end{align*}
+
+\subsection*{Answer}
+
+\section*{Question 5:}
+Let \(V\) be a Hilbert space. Let \(S_1\) and \(S_2\) be two hyperplanes in \(V\) defined by
+\begin{align*}
+    S_1 = \{x \in V | \langle \bm{a}_1, \bm{x}\rangle = b_1\}, S_2 = {\bm{x} \in V | \langle \bm{a}_2, \bm{x} \rangle = b_2}.
+\end{align*}
+
+Assume \(S_1 \cap S_2\) is non-empty. Let \(\bm{y} \in V\) be given. We consider the projection of \(\bm{y}\) onto \(S_1 \cap S_2\), i.e.,
+the solution of 
+\begin{align}
+    \min_{\bm{x} \in S_1 \cap S_2}\|\bm{x} - \bm{y}\|.
+\end{align}
+(a) Prove that \(S_1 \cap S_2\) is a plane, i.e., if \(\bm{x}, \bm{z} \in S_1 \cap S_2\), then \((1 + t)\bm{z} - t\bm{x} \in S_1 \cap S_2\) for any \(t \in \R\). 
+
+(b) Prove that \(\bm{z}\) is a solution of (3) if and only if \(\bm{z} \in S_1 \cap S_2\) and 
+\begin{align}
+    \langle \bm{z} - \bm{y}, \bm{z} - \bm{x}\rangle = 0, \forall \bm{x} \in S_1 \cap S_2
+\end{align}
+
+(c) Find and explicit solution of (3). \\
+
+(d) Prove the solution found in part (c) is unique. \\
 
 
 \end{document}
