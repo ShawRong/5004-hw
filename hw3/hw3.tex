@@ -105,14 +105,14 @@ and let \(\bm{y} = \begin{bmatrix}
 
 (a) Consider the least squares estimation:
 \begin{align}
-    \text{min}_{\beta \in \R^2}\|\bm{X}\beta - \bm{y}\|_2^2 
+    \text{min}_{\bm{\beta} \in \R^2}\|\bm{X}\bm{\beta} - \bm{y}\|_2^2 
 \end{align}
 What problem does the linear dependency among the columns of \(\bm{X}\) cause when estimating \(\bm{\beta}\) using least squares?
 
 (b) Now consider the ridge regression, which incorporates a regularization term:
 
 \begin{align}
-    \text{min}_{\beta \in \R^2}\|\bm{X}\bm{\beta} - \bm{y}\|_2^2 + \lambda\|\bm{\beta}\|_2^2,
+    \text{min}_{\bm{\beta} \in \R^2}\|\bm{X}\bm{\beta} - \bm{y}\|_2^2 + \lambda\|\bm{\beta}\|_2^2,
 \end{align}
 
 where \(\lambda > 0\) is a regularization parameter. Derive the solution \(\hat{\bm{\beta}}\) of (2). What is the ratio between \(\hat{\beta}_1\) adn \(\hat{\beta}_2\)?
@@ -120,7 +120,11 @@ where \(\lambda > 0\) is a regularization parameter. Derive the solution \(\hat{
 (c) Discuss how varying the value of \(\lambda\) affects the solution and its ability to mitigate issues arising from linear dependency of columns of \(\bm{X}\).
 
 \subsection*{Answer}
-todo
+(a) According to Linear Algebra, it's obvious that \(\bm{X}\) does not have full column rank.
+
+This leads to the solution of \(\bm{X}\bm{\beta} - \bm{y}\) (i.e. \(\bm{\beta} fullfil this equation\)) is non-unique.
+
+
 
 \section*{Question 4:}
 Let \(\left\{(\bm{x}_i, y_i)\right\}_{i=1}^N\) be given with \(\bm{x}_i \in \R^n\) and \(y_i \in \R\). Consider the soft-SVM:
