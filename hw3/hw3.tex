@@ -122,27 +122,124 @@ where \(\lambda > 0\) is a regularization parameter. Derive the solution \(\hat{
 \subsection*{Answer}
 (a) According to Linear Algebra, it's obvious that \(\bm{X}\) does not have full column rank.
 
-This leads to the solution of \(\bm{X}\bm{\beta} - \bm{y}\) (i.e. \(\bm{\beta} fullfil this equation\)) is non-unique.
+This leads to the solution of \(\bm{X}\bm{\beta} - \bm{y}\) (i.e. \(\bm{\beta} fullfil this equation\)) is non-unique. \\
+
+Non-Invertibility: For the least squares solution \(\beta = (\bm{X}^T\bm{X})^{-1}\bm{X}^{T}\bm{y}\) to be well-defined, 
+
+\(\bm{X}^T\bm{X}\) must be invertible. However, with linearly dependent columns, \(\bm{X}^T\bm{X}\) is singular. \\
+
+Infinite Solutions: The least squares approach cannot uniquely identify \(\bm{\beta}\) vector since there exists infinitely many solutions. \\
+
+This will make class of affine functions is too large to search f. \\
+(b)
+We know it should satisfy:
+\begin{align*}
+    \nabla_{\bm{\beta}}(\|\bm{X}\bm{\beta} - \bm{y}\|_2^2 + \lambda \|\bm{\beta}\|_2^2) &= 2\bm{X}^T(\bm{X}\bm{\beta} - \bm{y}) + 2\lambda\bm{\beta} = 0  \\
+    (\bm{X}^T\bm{X} + \lambda \bm{I})\bm{\beta} &= \bm{X}^T\bm{y}
+\end{align*}
+Provided \(\lambda > 0, \bm{X}^T \bm{X} + \lambda\bm{I}\) is invertible,
+\begin{align*}
+    \hat{\bm{\beta}} = (\bm{X}^T\bm{X} + \lambda \bm{I})^{-1}\bm{X}^T\bm{y}
+\end{align*}
+
+Given \(\bm{x}^{(1)} = 2\bm{x}^{(2)}\), the matrix \(\bm{X}^T\bm{X}\) has the form, where \(a = \|\bm{x}^{(2)}\|_2^2\).:
+\begin{align*}
+    \bm{X}^T\bm{X} &= \begin{bmatrix}
+        4a &2a \\
+        2a &a \\
+    \end{bmatrix} \\
+    \bm{X}^T\bm{X} + \lambda\bm{I} &= \begin{bmatrix}
+        4a+\lambda &2a  \\
+        2a &a+\lambda
+    \end{bmatrix}
+\end{align*}
+We know (give \(\alpha\) as a constant):
+\begin{align*}
+    (\bm{X}^T\bm{X} + \lambda\bm{I})^{-1} = \alpha \begin{bmatrix}
+        a + \lambda &-2a \\
+        -2a          &4a+\lambda
+    \end{bmatrix}
+\end{align*}
+
+Assume \((\bm{X}^T\bm{X} + \lambda\bm{I})^{-1} = \begin{bmatrix}
+    a, &b \\
+    c, &d \\
+\end{bmatrix}\),
+\(X^T = \begin{bmatrix}
+    2x_1 &2x_2 \\
+    x_1 &x_2\\
+\end{bmatrix}\)
+\begin{align*}
+    (\bm{X}^T\bm{X} + \lambda \bm{I})^{-1}\bm{X}^T &= \begin{bmatrix}
+        2ax_1 + bx_1  &2ax_2 + bx_2 \\
+        2cx_1 + dx_1  &2cx_2 + dx_2
+    \end{bmatrix} \\
+    (\bm{X}^T\bm{X} + \lambda \bm{I})^{-1}\bm{X}^T\bm{y} &= \begin{bmatrix}
+        2ax_1 + bx_1  &2ax_2 + bx_2 \\
+        2cx_1 + dx_1  &2cx_2 + dx_2
+    \end{bmatrix}\bm{y} = \begin{bmatrix}
+        (2ax_1 + bx_1)y_1 + (2ax_2 + bx_2)y_2 \\
+        (2cx_1 + dx_1)y_1 + (2cx_2 + dx_2)y_2
+    \end{bmatrix}
+\end{align*}
+we know that \(\frac{2a + b}{2c + d} = \frac{2a + 2\lambda - 2a}{-4a + 4a + \lambda} = \frac{2\lambda}{\lambda} = 2\) \\
+It is obvious that \({\hat{\beta}_1} / {\hat{\beta}_2} = 2\).
+
+(c)
+As \(\lambda\) increasing, the matrix \(\bm{X}^T\bm{X} + \lambda\bm{I}\) becomes increasingly well-conditioned adn easier to invert.
+By adding \(\lambda\bm{I}\), ridge regression reduces the influence of the linear dependency in \(\bm{X}\).
+The regularization term \(\lambda\|\bm{\beta}\|_2^2\) effectively penalizes large values in \(\bm{\beta}\),
+which helps in controlling variance and provides a unique solution despite \(\bm{X}\) being rank-deficient.
+As \(\lambda \to 0\), the ridge solution approaches the least squares solution, potentially reintroducing instability due to 
+multicollinearity. As \(\lambda \to \infty\), the solution \(\hat{\bm{\beta}}\) shrinks toward zero, prioritizing stability but
+at the cost of increasing bias. Thesefore, choosing an appropriate \(\lambda\) balances stability and accuracy.
+
 
 
 
 \section*{Question 4:}
 Let \(\left\{(\bm{x}_i, y_i)\right\}_{i=1}^N\) be given with \(\bm{x}_i \in \R^n\) and \(y_i \in \R\). Consider the soft-SVM:
 \begin{align*}
-    \min_{a\in\R^n, b\in \R} \sum_{i=1}^N h(y_i(\langle \bm{a}, \bm{x}_i\rangle) + b) - 1 + \lambda\|\bm{a}\|_2^2,
+    \min_{a\in\R^n, b\in \R} \sum_{i=1}^N h(y_i(\langle \bm{a}, \bm{x}_i\rangle + b) - 1) + \lambda\|\bm{a}\|_2^2,
 \end{align*}
 where \(\lambda \in \R\) is a regularization parameter and \(h(t) = \max\{0, -t\}\) is the hinge loss function. Prove that solving the above soft-SVM is equivalent to solving the following problem:
 \begin{align*}
-    &\min_{\bm{a} \in R^n, b \in \R, \bm{\xi} \in \R^N} \sum_{i = 1}^N \xi + \lambda\|\bm{a}\|_2^2, \\
+    &\min_{\bm{a} \in R^n, b \in \R, \bm{\xi} \in \R^N} \sum_{i = 1}^N \xi_i + \lambda\|\bm{a}\|_2^2, \\
     &\text{s.t. } y_i(\langle \bm{a}, \bm{x}_i\rangle + b) \geq 1 - \xi_i \text{ and } \xi_i \geq 0, i = 1,2,\cdots,N
 \end{align*}
 
 \subsection*{Answer}
+Since \(\forall a \in H\), we can decompose it as:
+\begin{align*}
+    \bm{a} = \bm{a}_s + \sum_{i=1}^{N}c_i\bm{x}_i, \text{ where } c = \begin{bmatrix}
+        c_1 \\
+        \vdots \\
+        c_N
+    \end{bmatrix} \in \R^N \\
+    \text{and } \bm{a}_s \text{ satisfies } \langle \bm{a}_s, \bm{x}_i\rangle = 0, i=1, \cdots, N
+\end{align*}
+Then the objective function in (K-SVM) is:
+\begin{align*}
+    &\sum_{i=1}^N h(y_i (\langle \bm{a}, \bm{x}_i\rangle + b) - 1) + \lambda\|\bm{a}\|_2^2 \\
+    &= \sum_{i=1}^N h(y_i (\langle \bm{a}_s + \sum_{j=1}^N c_j \bm{x}_j, \bm{x}_i\rangle + b) - 1) + \lambda\|\bm{a}\|_2^2 \\
+    &= \sum_{i=1}^N h(y_i (\sum_{j=1}^N c_j \langle \bm{x}_j, \bm{x}_i\rangle + b) - 1) +  \lambda\|\bm{a}\|_2^2 \\
+\end{align*}
+Define \(\xi_i \geq 1 - y_i (\sum_{j=1}^N c_j \langle \bm{x}_j, \bm{x}_i\rangle + b)\)
+We know:
+\begin{align*}
+    &\min_{\bm{a} \in R^n, b \in \R, \bm{\xi} \in \R^N} \sum_{i = 1}^N \xi_i + \lambda\|\bm{a}\|_2^2  \leq \sum_{i=1}^N h(y_i (\sum_{j=1}^N c_j \langle \bm{x}_j, \bm{x}_i\rangle + b) - 1) +  \lambda\|\bm{a}\|_2^2 \\
+\end{align*}
+So we can conclude that solving the above soft-SVM is equivalent to solving the following problem:
+\begin{align*}
+    &\min_{\bm{a} \in R^n, b \in \R, \bm{\xi} \in \R^N} \sum_{i = 1}^N \xi_i + \lambda\|\bm{a}\|_2^2, \\
+    &\text{s.t. } y_i(\langle \bm{a}, \bm{x}_i\rangle + b) \geq 1 - \xi_i \text{ and } \xi_i \geq 0, i = 1,2,\cdots,N
+\end{align*}
+
 
 \section*{Question 5:}
 Let \(V\) be a Hilbert space. Let \(S_1\) and \(S_2\) be two hyperplanes in \(V\) defined by
 \begin{align*}
-    S_1 = \{x \in V | \langle \bm{a}_1, \bm{x}\rangle = b_1\}, S_2 = {\bm{x} \in V | \langle \bm{a}_2, \bm{x} \rangle = b_2}.
+    S_1 = \{\bm{x} \in V | \langle \bm{a}_1, \bm{x}\rangle = b_1\}, S_2 = \{\bm{x} \in V | \langle \bm{a}_2, \bm{x} \rangle = b_2\}.
 \end{align*}
 
 Assume \(S_1 \cap S_2\) is non-empty. Let \(\bm{y} \in V\) be given. We consider the projection of \(\bm{y}\) onto \(S_1 \cap S_2\), i.e.,
@@ -160,6 +257,10 @@ the solution of
 (c) Find and explicit solution of (3). \\
 
 (d) Prove the solution found in part (c) is unique. \\
+
+\begin{align*}
+    
+\end{align*}
 
 
 \end{document}
