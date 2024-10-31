@@ -44,6 +44,9 @@ In conclusion, \(f(\bm{x}) = max_kx_k - min_kx_k \) is not a linear function. \\
 (b) \\
 We know:
 \begin{align*}
+    f(\alpha \bm{x}) = \alpha x_n - \alpha x_1 = \alpha f(\bm{x})
+\end{align*}
+\begin{align*}
     \alpha \bm{x} + \beta \bm{y} = (\alpha x_1 + \beta y_1 , \cdots , \alpha x_n + \beta y_n)
 \end{align*}
 \begin{align*}
@@ -224,10 +227,15 @@ Then the objective function in (K-SVM) is:
     &= \sum_{i=1}^N h(y_i (\langle \bm{a}_s + \sum_{j=1}^N c_j \bm{x}_j, \bm{x}_i\rangle + b) - 1) + \lambda\|\bm{a}\|_2^2 \\
     &= \sum_{i=1}^N h(y_i (\sum_{j=1}^N c_j \langle \bm{x}_j, \bm{x}_i\rangle + b) - 1) +  \lambda\|\bm{a}\|_2^2 \\
 \end{align*}
-Define \(\xi_i \geq 1 - y_i (\sum_{j=1}^N c_j \langle \bm{x}_j, \bm{x}_i\rangle + b)\)
-We know:
+Define \(\xi_i = 1 - y_i (\sum_{j=1}^N c_j \langle \bm{x}_j, \bm{x}_i\rangle + b) = \max\{0, 1 - y_i\langle \bm{a}, \bm{x}_i\rangle + b\}\)
+s.t. we have to ensure:
 \begin{align*}
-    &\min_{\bm{a} \in R^n, b \in \R, \bm{\xi} \in \R^N} \sum_{i = 1}^N \xi_i + \lambda\|\bm{a}\|_2^2  \leq \sum_{i=1}^N h(y_i (\sum_{j=1}^N c_j \langle \bm{x}_j, \bm{x}_i\rangle + b) - 1) +  \lambda\|\bm{a}\|_2^2 \\
+    \xi_i &\geq 1 - y_i(\langle \bm{a}, \bm{x}_i \rangle + b) \\
+    \xi_i &\geq 0
+\end{align*}
+We know the problem becomes:
+\begin{align*}
+    &\min_{\bm{a} \in R^n, b \in \R, \bm{\xi} \in \R^N} \sum_{i = 1}^N \xi_i + \lambda\|\bm{a}\|_2^2 \\
 \end{align*}
 So we can conclude that solving the above soft-SVM is equivalent to solving the following problem:
 \begin{align*}
@@ -257,10 +265,83 @@ the solution of
 (c) Find and explicit solution of (3). \\
 
 (d) Prove the solution found in part (c) is unique. \\
-
+\subsection*{Answer}
+(a)
 \begin{align*}
-    
+     &\langle \bm{a}, (1+t)\bm{z} - t\bm{x}\rangle \\
+     &= (1 + t)\langle \bm{a}, \bm{z}\rangle - t\langle \bm{a}, \bm{x}\rangle \\
+     &= (1 + t)b - t b \\
+     &= b
 \end{align*}
+There \(\bm{a}\) can be \(\bm{a}_1, \bm{a}_2\) (correspondingly \(b\) should be \(b_1, b_2\)). \\
+
+We can conclude that \((1 + t) \bm{z} - t \bm{x} \in S_1 \cap S_2 \text{ for any } t \in \R\) 
+
+(b)
+From(a) we know:
+\begin{align*}
+    \bm{z} + t(\bm{x} - \bm{z}) \in S_1 \cap S_2
+\end{align*}
+since \(\bm{z}\) is the \(min_{\bm{x} \in S_1 \cap S_2} \|\bm{x} - \bm{y}\|\)
+\begin{align*}
+    \|\bm{z} - \bm{y}\|^2 &\leq \|\bm{z} + t(\bm{x} - \bm{z}) - \bm{y}\|^2 \\
+    &= \|(\bm{z} - \bm{y}) + t(\bm{x} - \bm{z})\|^2 \\
+    &= \|\bm{z} - \bm{y}\|^2 + t^2\|\bm{x} - \bm{z}\|^2 + 2t\langle \bm{z} - \bm{y}, \bm{x} - \bm{z}\rangle
+\end{align*}
+Proof: If \(\bm{z}\) is a solution. then:
+Obviously, \(\bm{z} \in S_1 \cap S_2\), 
+\begin{align*}
+    2t\langle \bm{z} - \bm{y}, \bm{x} - \bm{z}\rangle &\geq - t^2 \|\bm{x} - \bm{z}\|^2  \\
+    \langle \bm{z} - \bm{y}, \bm{x} - \bm{z}\rangle &\geq - \frac t 2 \|\bm{x} - \bm{z}\|^2 , \text{ if } t > 0\\
+    \langle \bm{z} - \bm{y}, \bm{x} - \bm{z} \rangle &\geq 0, \text{ let }t \to 0_{+} \\
+    \langle \bm{z} - \bm{y}, \bm{x} - \bm{z}\rangle &\leq - \frac t 2 \|\bm{x} - \bm{z}\|^2 , \text{ if } t < 0\\
+    \langle \bm{z} - \bm{y}, \bm{x} - \bm{z} \rangle &\leq 0, \text{ let }t \to 0_{-} \\
+    \langle \bm{z} - \bm{y}, \bm{x} - \bm{z} \rangle &= 0  \text{ together} \\
+\end{align*}
+Proof: If \(z \in S_1 \cap S_2\), and \(\langle \bm{z} - \bm{y}, \bm{x} - \bm{z} \rangle = 0, \forall \bm{x} \in S_1 \cap S_2\)
+\begin{align*}
+    \|\bm{x} - \bm{y} \|^2 &= \|(\bm{x} - \bm{z}) + (\bm{z} - \bm{y})\|^2 \\
+    &= \|\bm{x} - \bm{z}\|^2 + \|\bm{z} - \bm{y}\|^2 + 2 \langle \bm{x} - \bm{z}, \bm{z} - \bm{y}\rangle \\
+    &= \|\bm{x} - \bm{z}\|^2 + \|\bm{z} - \bm{y}\|^2 \\
+    &\geq \|\bm{z} - \bm{y}\|^2 \\
+    & \text{so, } \bm{z} = \text{argmin}_{\bm{x} \in S_1 \cap S_2} \|\bm{x} - \bm{y}\|
+\end{align*}
+
+(c)
+Denote \(\bm{w}_1 = \frac{1}{\|\bm{a}_1\|} \bm{a}_1\), and \(\bm{w}_2 = \frac{1}{\|\bm{w}'_2\|} \bm{w}_2'\), where \(\bm{w}_2' = \bm{a}_2 - \frac{\langle \bm{a}_2, \bm{a}_1 \rangle}{\langle \bm{a}_1, \bm{a}_1 \rangle} \bm{a}_1\)
+\begin{align*}
+    \bm{z} = \bm{y} - \sum_{i=1}^{2}\langle \bm{y}, \bm{w}_i  \rangle \bm{w}_i
+\end{align*}
+\begin{align*}
+    \langle \bm{a}_1, \bm{w}_1\rangle &= \frac{\langle \bm{a}_1, \bm{a}_1\rangle}{ \|\bm{a_1}\|} \\
+    \langle \bm{a}_1, \bm{w}_2\rangle &= 0 \\
+    \langle \bm{a}_1, \bm{z}\rangle &= 0 \text{ we can prove according to above equation}\\
+\end{align*}
+Similarly, we can prove this is true, about\(\langle\bm{a}_2, \bm{z}\rangle = 0\).
+And, we can verify that.
+\begin{align*}
+    \langle \bm{z} - \bm{y}, \bm{x} - \bm{z}\rangle = \sum_{i=1}^{2}\langle \bm{y}, \bm{w}_i\rangle \langle \bm{w}_i, \bm{x} - \bm{z} \rangle = 0
+\end{align*}
+In conclusion, \(\bm{w}_1 = \frac{1}{\|\bm{a}_1\|} \bm{a}_1\), and \(\bm{w}_2 = \frac{1}{\|\bm{w}'_2\|} \bm{w}_2'\), where \(\bm{w}_2' = \bm{a}_2 - \frac{\langle \bm{a}_2, \bm{a}_1 \rangle}{\langle \bm{a}_1, \bm{a}_1 \rangle} \bm{a}_1\)
+\begin{align*}
+    \bm{z} = \bm{y} - \sum_{i=1}^{2}\langle \bm{y}, \bm{w}_i  \rangle \bm{w}_i
+\end{align*}
+is a solution of (3)
+
+
+
+(d)
+We know that:\(\langle \bm{z} - \bm{y}, \bm{z} - \bm{x}\rangle = 0 , \forall \bm{x} \in S_1 \cap S_2\) \\
+Proof: Suppose we have 2 solutions \(\bm{z}_1, \bm{z}_2, and \bm{z}_1, \bm{z}_2 \in S_1 \cap S_2\)
+\begin{align*}
+    \langle \bm{z}_1 - \bm{y}, \bm{z}_2 - \bm{z}_1\rangle &= 0  \\
+    \langle \bm{z}_2 - \bm{y}, \bm{z}_1 - \bm{z}_2\rangle &= 0  \\
+    \langle \bm{z}_1 - \bm{y}, \bm{z}_2 - \bm{z}_1\rangle + \langle \bm{z}_2 - \bm{y}, \bm{z}_1 - \bm{z}_2\rangle &= 0 \\
+    \langle \bm{z}_1 - \bm{y} + \bm{y} - \bm{z}_2, \bm{z}_2 - \bm{z}_1\rangle &= 0 \\
+    \langle \bm{z}_1 - \bm{z}_2, \bm{z}_2 - \bm{z}_1\rangle &= 0 \\
+    -\|\bm{z}_1 - \bm{z}_2\|^2 &= 0 \implies \bm{z}_1 = \bm{z}_2\\
+\end{align*}
+
 
 
 \end{document}
