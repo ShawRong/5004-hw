@@ -1,0 +1,56 @@
+\documentclass[a4paper,12pt]{article} \usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{bm}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+% 设置页边距
+\geometry{
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm,
+}
+
+\begin{document}
+
+\section*{Question 1:}
+1. For each of the following functions \(f(x_1, x_2)\), find all critical points (i.e, all \(x_1, x_2\) such that \( \nabla f(x_1, x_2) = \bm{0}\)). \\
+
+(a) \(f(x_1, x_2) = (4x_1^2 - x_2)^2\) \\
+(b) \( f(x_1, x_2) = 2x_2^3 - 6x_2^2 + 3x_1^2x_2\) \\
+(c) \(f(x_1, x_2) = (x_1 - 2x_2)^4 + 64x_1x_2\) \\
+(d) \(f(x_1, x_2) = x_1^2 + 4x_1x_2 + x_2^2 + x_1 - x_2\) \\
+
+\subsection*{Answer :}
+
+\section*{Question 2:}
+2. Find the gradient of the following functions, where the space \(\R\) and \(\R^{n \times n}\) are equipped with the standard inner product. \\
+(a) \(f(\bm{x}) = \frac{1}{2} \|\bm{A}\bm{x} - \bm{b}\|_2^2 + \lambda\|\bm{x}\|_2^2\), where \(\bm{A} \in \R^{m \times n}\), \(b \in \R^m\), and (\(\lambda > 0\)) are given. \\
+(b) \(f(\bm{X})\) = \(\bm{b}^T\bm{X}\bm{c}\), where \(\bm{X} \in \R^{n \times n}\) and \(\bm{b}, \bm{c} \in \R^n\) \\
+(c) \(f(\bm{X})\) = \(\bm{b}\bm{X}^T\bm{X}c\), where \(\bm{X} \in \bm{R}^{n \times n}\) and \(\bm{b}, \bm{c} \in \R^n\) 
+\subsection*{Answer :}
+
+\section*{Question 3:}
+3. Let \(\{\bm{x}_i, y_i\}_{i = 1}^N\) be given with \(\bm{x}_i \in \R\) and \(y_i \in \R\). Assume \(N < n\). Consider the ridge regression
+\begin{align*}
+    \text{minimize}_{\bm{a}\in\R^N} \sum_{i = 1}^N (\langle \bm{\alpha}, \bm{x}_i\rangle - y_i)^2 + \lambda\|\bm{a}\|_2^2,
+\end{align*}
+where \(\lambda \in \R\) is a regularization parameter, and we set the bias \(b = 0\) for simplicity. \\
+
+(a) Prove that the solution must be in the form of \(\bm{a} = \sum_{i = 1}^N c_i \bm{x}_i\) for some \(\bm{c} = [c_1, c_2, \cdots, c_N]^T \in \R^N\). \\
+(\textit{hint: similar to the proof of the representer theorem.})
+
+(b) Re-express the minimization in terms of \(c \in \R^N\), which has fewer unknowns than the original formulation as \(N < n\).
+
+
+\subsection*{Answer :}
+\section*{Question 4:}
+4. Let \(f(\bm{x}) = \bm{x}^T\bm{A}\bm{x} + 2\bm{b}^T\bm{x} + c\), where \(\bm{A} \in \R^{n \times n}\) is a symmetric positive semidefinite matrix, \(b \in \R^n\), and \(c \in \R\). \\
+(a) Prove that \(\bm{x}\) is a global minimizer of \(f\) if and only if \(\bm{A}\bm{x} = -\bm{b}\). \\
+(b) Prove that \(f\) is bounded below over \(\R^n\) if and only if \(\bm{b} \in \{\bm{A}\bm{y}: \bm{y} \in \R^n\}\). \\
+\subsection*{Answer :}
+\end{document}
