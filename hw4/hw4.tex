@@ -1,4 +1,5 @@
-\documentclass[a4paper,12pt]{article} \usepackage{amsmath}
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{geometry}
@@ -17,6 +18,12 @@
 
 \begin{document}
 
+\title{5004 Homework 2}
+\author{RONG Shuo}
+\date{\today}
+\maketitle
+
+
 \section*{Question 1:}
 1. For each of the following functions \(f(x_1, x_2)\), find all critical points (i.e, all \(x_1, x_2\) such that \( \nabla f(x_1, x_2) = \bm{0}\)). \\
 
@@ -26,6 +33,59 @@
 (d) \(f(x_1, x_2) = x_1^2 + 4x_1x_2 + x_2^2 + x_1 - x_2\) \\
 
 \subsection*{Answer :}
+(a)
+\begin{align*}
+    \frac{\partial f}{ \partial x_1} = 2(4x_1^2 - x_2)(8x_1) = 16x_1(4x_1^2 - x_2) \\
+    \frac{\partial f}{ \partial x_2} = 2(4x_1^2 - x_2)(-1) = -2(4x_1^2 - x_2)
+\end{align*}
+set the gradient to 0:
+\begin{align}
+    16x_1(4x_1^2 - x_2) = 0 \\
+    -2(4x_1^2 - x_2) = 0 
+\end{align}
+if \(x_1 = 0\), from (2) we can get that \(x_2 = 0\)
+if \(x_1 \ne 0\), from equation (1), we know:
+\begin{align*}
+    4x_1^2 = x_2
+\end{align*}
+this satisfied \((x_1, x_2) = (0, 0)\)
+Thus, we can conclude that the critical points are:
+\begin{align*}
+    (x_1, x_2) = (x_1, 4x_1^2) \forall x_1 \in \R.
+\end{align*}
+
+
+(b) 
+\begin{align*}
+    \frac{\partial f}{\partial x_1} = 6x_1x_2 \\
+    \frac{\partial f}{\partial x_2} = 6x_2^2 - 12x_2 + 3x_1^2 
+\end{align*}
+set the gradient to 0:
+\begin{align*}
+    6x_1x_2 = 0 \\
+    6x_2^2 - 12x_2 + 3x_1^2 = 0
+\end{align*}
+if \(x_1 = 0\), 
+\begin{align*}
+    6x_2^2 - 12x_2 = 0
+    6x_2(x_2 - 2) = 0
+\end{align*}
+we can conclude that \((x_1 ,x_2) = (0, 0), \text{ or } (x_1 ,x_2) = (0, 2).\)
+if \(x_2 = 0\), 
+\begin{align*}
+    3x_1^2 = 0
+    x_1 = 0
+\end{align*}
+This gives \((x_1, x_2) = (0, 0)\) \\
+In conclusion, the critical points is \((0, 0) \text{ and }(0, 2)\)
+
+(c)
+\begin{align*}
+    \frac{}{}
+\end{align*}
+
+
+
 
 \section*{Question 2:}
 2. Find the gradient of the following functions, where the space \(\R\) and \(\R^{n \times n}\) are equipped with the standard inner product. \\
