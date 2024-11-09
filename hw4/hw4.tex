@@ -35,13 +35,13 @@
 \subsection*{Answer :}
 (a)
 \begin{align*}
-    \frac{\partial f}{ \partial x_1} = 2(4x_1^2 - x_2)(8x_1) = 16x_1(4x_1^2 - x_2) \\
-    \frac{\partial f}{ \partial x_2} = 2(4x_1^2 - x_2)(-1) = -2(4x_1^2 - x_2)
+    \frac{\partial f}{ \partial x_1} &= 2(4x_1^2 - x_2)(8x_1) = 16x_1(4x_1^2 - x_2) \\
+    \frac{\partial f}{ \partial x_2} &= 2(4x_1^2 - x_2)(-1) = -2(4x_1^2 - x_2)
 \end{align*}
 set the gradient to 0:
 \begin{align}
-    16x_1(4x_1^2 - x_2) = 0 \\
-    -2(4x_1^2 - x_2) = 0 
+    16x_1(4x_1^2 - x_2) &= 0 \\
+    -2(4x_1^2 - x_2) &= 0 
 \end{align}
 if \(x_1 = 0\), from (2) we can get that \(x_2 = 0\)
 if \(x_1 \ne 0\), from equation (1), we know:
@@ -51,50 +51,84 @@ if \(x_1 \ne 0\), from equation (1), we know:
 this satisfied \((x_1, x_2) = (0, 0)\)
 Thus, we can conclude that the critical points are:
 \begin{align*}
-    (x_1, x_2) = (x_1, 4x_1^2) \forall x_1 \in \R.
+    (x_1, x_2) &= (x_1, 4x_1^2) ,\forall x_1 \in \R.
 \end{align*}
 
 
 (b) 
 \begin{align*}
-    \frac{\partial f}{\partial x_1} = 6x_1x_2 \\
-    \frac{\partial f}{\partial x_2} = 6x_2^2 - 12x_2 + 3x_1^2 
+    \frac{\partial f}{\partial x_1} &= 6x_1x_2 \\
+    \frac{\partial f}{\partial x_2} &= 6x_2^2 - 12x_2 + 3x_1^2 
 \end{align*}
 set the gradient to 0:
 \begin{align*}
-    6x_1x_2 = 0 \\
-    6x_2^2 - 12x_2 + 3x_1^2 = 0
+    6x_1x_2 &= 0 \\
+    6x_2^2 - 12x_2 + 3x_1^2 &= 0
 \end{align*}
 if \(x_1 = 0\), 
 \begin{align*}
-    6x_2^2 - 12x_2 = 0
-    6x_2(x_2 - 2) = 0
+    6x_2^2 - 12x_2 &= 0 \\
+    6x_2(x_2 - 2) &= 0
 \end{align*}
-we can conclude that \((x_1 ,x_2) = (0, 0), \text{ or } (x_1 ,x_2) = (0, 2).\)
+we can conclude that \((x_1 ,x_2) = (0, 0), \text{ or } (x_1 ,x_2) = (0, 2).\) \\
 if \(x_2 = 0\), 
 \begin{align*}
-    3x_1^2 = 0
-    x_1 = 0
+    3x_1^2 &= 0
+    x_1 &= 0
 \end{align*}
 This gives \((x_1, x_2) = (0, 0)\) \\
 In conclusion, the critical points is \((0, 0) \text{ and }(0, 2)\)
 
 (c)
 \begin{align*}
-    \frac{f}{\partial x_1} = 4(x_1 - 2x_2)^3 + 64x_2 \\
-    \frac{f}{\partial x_2} = -8(x_1 - 2x_2)^3 + 64x_1
+    \frac{f}{\partial x_1} &= 4(x_1 - 2x_2)^3 + 64x_2 \\
+    \frac{f}{\partial x_2} &= -8(x_1 - 2x_2)^3 + 64x_1
 \end{align*}
 set the gradient to 0:
 \begin{align*}
-    4(x_1 - 2x_2)^3 + 64x_2 = 0 \\
-    (x_1 - 2x_2)^2 = -16x_2 \\
-    -8(x_1 - 2x_2)^3 + 64x_1 = 0 \\
-    (x_1 - 2x_2)^3 = 8x_1
+    4(x_1 - 2x_2)^3 + 64x_2 &= 0 \\
+    (x_1 - 2x_2)^2 &= -16x_2 \\
+    -8(x_1 - 2x_2)^3 + 64x_1 &= 0 \\
+    (x_1 - 2x_2)^3 &= 8x_1
 \end{align*}
 \begin{align*} 
-    (x_1 - 2x_2)^2 = -16x_2 \\
-    (x_1 - 2x_2)^3 = 8x_1
+    (x_1 - 2x_2)^3 &= -16x_2 \\
+    (x_1 - 2x_2)^3 &= 8x_1 \\
+    -16x_2 &= 8x_1 \\
+    -2x_2 &= x_1
 \end{align*}
+Substituting \(-2x_2 = x_1 \) to \((x_1 - 2x_2)^2 = -16x_2\), we can get:
+\begin{align*}
+    64x_2^3 + 16x_2 &= 0 \\
+    x_2^2 &= \frac{1}{4} 
+\end{align*}
+Thus, the result is
+\begin{align*}
+    (x_1, x_2) &= (-1, \frac{1}{2}) \\
+    (x_1, x_2) &= (1, -\frac{1}{2})
+\end{align*}
+
+(d)
+\begin{align*}
+    \frac{\partial f}{\partial x_1} &= 2x_1 + 4x_1 + 1 \\
+    \frac{\partial f}{\partial x_2} &= 4x_2 + 2x_2 - 1
+\end{align*}
+set the gradient to 0:
+\begin{align*}
+    2x_1 + 4x_2 + 1 &= 0 \\
+    4x_2 + 2x_2 - 1 &= 0
+\end{align*}
+\begin{align*}
+    x_1 &= - \frac{1}{2} - 2x_2 
+\end{align*}
+Substituting this to second equation.
+\begin{align*}
+    4(- \frac{1}{2} - 2x_2) + 2x_2 - 1 &= 0 \\
+    -2 - 8x_2 + 2x_2 - 1 &= 0 \\
+    x_2 &= -\frac{1}{2} \\
+    x_1 &= -\frac{1}{2} + 1 = \frac{1}{2}
+\end{align*}
+Thus, the critical point is \(\left( \frac{1}{2}, -\frac{1}{2} \right)\)
 
 
 
@@ -106,6 +140,23 @@ set the gradient to 0:
 (b) \(f(\bm{X})\) = \(\bm{b}^T\bm{X}\bm{c}\), where \(\bm{X} \in \R^{n \times n}\) and \(\bm{b}, \bm{c} \in \R^n\) \\
 (c) \(f(\bm{X})\) = \(\bm{b}\bm{X}^T\bm{X}c\), where \(\bm{X} \in \bm{R}^{n \times n}\) and \(\bm{b}, \bm{c} \in \R^n\) 
 \subsection*{Answer :}
+(a)
+\begin{align*}
+    f(\bm{y}) &= \frac{1}{2} \|\bm{A}\bm{y} - \bm{b}\|_2^2 + \lambda\|\bm{y}\|_2^2 \\
+    f(\bm{y}) &= \frac{1}{2} \|\bm{A}\bm{y} - \bm{A}\bm{x} + \bm{A}\bm{x} - \bm{b}\|_2^2 + \lambda\|\bm{y} - \bm{x} + \bm{x}\|_2^2 \\
+    f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x}) + \bm{A}\bm{x} - \bm{b}\|_2^2 + \lambda\|(\bm{y} - \bm{x}) + \bm{x}\|_2^2 \\
+    f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|^2 + \langle \bm{A} (\bm{y} - \bm{x}), \bm{A}\bm{x} -\bm{b} \rangle+ \frac{1}{2}\|\bm{A}\bm{x} - \bm{b}\|_2^2 + \lambda\|\bm{y} - \bm{x}\|^2 + \lambda\langle \bm{y} - \bm{x}, \bm{x}\rangle + \lambda\|\bm{x}\|_2^2 \\
+    f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|^2 + \langle(\bm{y} - \bm{x}), \bm{A}^T(\bm{A}\bm{x} -\bm{b}) \rangle+ \frac{1}{2}\|\bm{A}\bm{x} - \bm{b}\|_2^2 + \lambda\|\bm{y} - \bm{x}\|^2 + \lambda\langle \bm{y} - \bm{x}, \bm{x}\rangle + \lambda\|\bm{x}\|_2^2 \\
+    f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|^2 + \langle(\bm{y} - \bm{x}), \bm{A}^T(\bm{A}\bm{x} -\bm{b}) \rangle+ f(\bm{x}) + \lambda\|\bm{y} - \bm{x}\|^2 + \lambda\langle \bm{y} - \bm{x}, \bm{x}\rangle \\
+\end{align*}
+\begin{align*}
+    &\lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{ |f(\bm{y}) - (f(\bm{x}) + \langle \bm{A}^T(\bm{A}\bm{x} - \bm{b}), \bm{y} - \bm{x}\rangle + \lambda \langle \bm{y} - \bm{x}, \bm{x} \rangle)| }{\|\bm{y} - \bm{x}\|_2} \\
+    &= \lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{\frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|^2 + \lambda \| \bm{y} - \bm{x}\|^2}{\|\bm{y} - \bm{x}\|_2} \\
+    &\leq \lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{\frac{1}{2} \|\bm{A}\|_2^2\|\bm{y} - \bm{x}\|^2 + \lambda \| \bm{y} - \bm{x}\|^2}{\|\bm{y} - \bm{x}\|_2} \\
+    &= \lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{1}{2} \|\bm{A}\|_2^2\|\bm{y} - \bm{x}\| + \lambda \| \bm{y} - \bm{x}\| \\
+    &= 0
+\end{align*}
+In conclusion, the gradient for(a) is \(\nabla f(\bm{x}) = \bm{A}^T(\bm{A}\bm{x} - \bm{b}) + 2\lambda \bm{x}\)
 
 \section*{Question 3:}
 3. Let \(\{\bm{x}_i, y_i\}_{i = 1}^N\) be given with \(\bm{x}_i \in \R\) and \(y_i \in \R\). Assume \(N < n\). Consider the ridge regression
