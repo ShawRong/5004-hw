@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.27)  7 NOV 2024 21:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.27)  7 NOV 2024 22:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -203,22 +203,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--34
 [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 101--103
+Underfull \hbox (badness 10000) in paragraph at lines 114--116
 
  []
 
 
-Overfull \hbox (14.42964pt too wide) in paragraph at lines 104--106
+Overfull \hbox (14.42964pt too wide) in paragraph at lines 117--119
 []\OT1/cmr/m/n/12 (a) Prove that the so-lu-tion must be in the form of $\OML/cmm/b/it/12 a \OT1/cmr/m/n/12 = [][] \OML/cmm/m/it/12 c[]\OML/cmm/b/it/12 x[]$ \OT1/cmr/m/n/12 for some $\OML/cmm/b/it/12 c \OT1/cmr/m/n/12 = [\OML/cmm/m/it/12 c[]; c[]; []  ; c[]\OT1/cmr/m/n/12 ][] \OMS/cmsy/m/n/12 2
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 112--115
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 125--128
 
  []
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
 
  []
 
@@ -237,7 +237,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,11n,65p,261b,211s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on hw4.pdf (3 pages, 143712 bytes).
+Output written on hw4.pdf (3 pages, 144105 bytes).
 PDF statistics:
  84 PDF objects out of 1000 (max. 8388607)
  50 compressed objects within 1 object stream
