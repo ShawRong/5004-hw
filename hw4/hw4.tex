@@ -156,12 +156,42 @@ Thus, the critical point is \(\left( \frac{1}{2}, -\frac{1}{2} \right)\)
     &= \lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{1}{2} \|\bm{A}\|_2^2\|\bm{y} - \bm{x}\| + \lambda \| \bm{y} - \bm{x}\| \\
     &= 0
 \end{align*}
-In conclusion, the gradient for(a) is \(\nabla f(\bm{x}) = \bm{A}^T(\bm{A}\bm{x} - \bm{b}) + 2\lambda \bm{x}\)
+In conclusion, the gradient for(a) is \(\nabla f(\bm{x}) = \bm{A}^T(\bm{A}\bm{x} - \bm{b}) + 2\lambda \bm{x}\) \\
+
+(b) 
+We know the definition of the \((\nabla_{\bm{X}} f(\bm{X}))_{ij} = \frac{\partial f}{\partial \bm{X}_{ij}} \) \\
+And we know that \(f(\bm{X})\)
+\begin{align*}
+    f(\bm{X}) &= \sum_{i=1}^{n}\sum_{j=1}^{n} b_iX_{ij}c_j \\
+    \frac{\partial f}{\partial X_{ij}} &= b_ic_j \\ 
+    \nabla_{\bm{X}} f(\bm{X}) &= \begin{bmatrix}
+        b_1c_1 & b_1c_2 & \cdots & b_1c_n \\
+        b_2c_1 & b_2c_2 & \cdots & b_2c_n \\
+        \vdots &\vdots & \vdots &\vdots \\
+        b_nc_1 & b_nc_2 & \cdots & b_nc_n \\
+    \end{bmatrix} \\
+    \nabla_{\bm{X}} f(\bm{X}) &= \bm{b}\bm{c}^T
+\end{align*} \\
+In conclusion, the gradient of \(f(\bm{X})\) = \(\bm{b}^T\bm{X}\bm{c}\) is \(\nabla_{\bm{X}} f(\bm{X}) = \bm{b}\bm{c}^T\) \\
+
+(c) We consider\\
+\begin{align*}
+    f(\bm{X}) &= \sum_{i=1}^{n}\sum_{j=1}^{n} b_iX_{ji}X_{ij}c_j \\
+    \frac{\partial f}{\partial X_{ij}} &= b_iX_{ji}c_j + b_iX_{ji}c_j = 2b_iX_{ji}c_j    \\ 
+    \nabla_{\bm{X}} f(\bm{X}) &= \begin{bmatrix}
+        2b_1\bm{X}_{11}c_1 & 2b_1\bm{X}_{21}c_2 & \cdots & 2b_1\bm{X}_{n1}c_n \\
+        2b_2\bm{X}_{12}c_1 & 2b_2\bm{X}_{22}c_2 & \cdots & 2b_2\bm{X}_{n2}c_n \\
+        \vdots &\vdots & \vdots &\vdots \\
+        2b_n\bm{X}_{1n}c_1 & 2b_n\bm{X}_{2n}c_2 & \cdots & 2b_n\bm{X}_{nn}c_n \\
+    \end{bmatrix} \\
+    \nabla_{\bm{X}} f(\bm{X}) &= 2\bm{b}\bm{X}\bm{c}^T
+\end{align*}
+
+
 
 \section*{Question 3:}
-3. Let \(\{\bm{x}_i, y_i\}_{i = 1}^N\) be given with \(\bm{x}_i \in \R\) and \(y_i \in \R\). Assume \(N < n\). Consider the ridge regression
-\begin{align*}
-    \text{minimize}_{\bm{a}\in\R^N} \sum_{i = 1}^N (\langle \bm{\alpha}, \bm{x}_i\rangle - y_i)^2 + \lambda\|\bm{a}\|_2^2,
+3. Let \(\{\bm{x}_i, y_i\}_{i = 1}^N\) be given with \(\bm{x}_i \in \R\) and \(y_i \in \R\). Assume \(N < n\). Consider the ridge regression \begin{align*}
+    \text{minimize}_{\bm{a}\in\R^N} \sum_{i = 1}^N (\langle \bm{a}, \bm{x}_i\rangle - y_i)^2 + \lambda\|\bm{a}\|_2^2,
 \end{align*}
 where \(\lambda \in \R\) is a regularization parameter, and we set the bias \(b = 0\) for simplicity. \\
 
@@ -172,11 +202,34 @@ where \(\lambda \in \R\) is a regularization parameter, and we set the bias \(b 
 
 
 \subsection*{Answer :}
+(a) We can denote \(\bm{a} = \bm{a}_s + \sum_{i=1}^N c_i \bm{x}_i\), where \(\bm{c} = [c_1, c_2, \cdots, c_N]^T \in \R^N\), and \(\langle \bm{a}_s, \bm{x}_i\rangle = 0\).
+\begin{align*}
+    \sum_{i = 1}^N (\langle \bm{a}, \bm{x}_i\rangle - y_i)^2 + \lambda\|\bm{a}\|_2^2 &= \sum_{i = 1}^N (\langle \bm{a}_s + \sum_{j=1}^N c_j \bm{x}_j, \bm{x}_i\rangle - y_i)^2 + \lambda\| \bm{a}_s + \sum_{j=1}^N c_j \bm{x}_j\|_2^2   \\
+    &= \sum_{i = 1}^N (\langle \bm{a}_s + \sum_{j=1}^N c_j \bm{x}_j, \bm{x}_i\rangle - y_i)^2 + \lambda\| \bm{a}_s + \sum_{j=1}^N c_j \bm{x}_j\|_2^2 \\
+    &= \sum_{i = 1}^N ( \sum_{j=1}^N c_j \langle \bm{x}_j, \bm{x}_i\rangle - y_i)^2 + \lambda\sum_{j_1=1}^N \sum_{j_2=1}^N c_{j_1}c_{j_2} \langle \bm{x}_{j_1}\bm{x}_{j_2}\rangle + \lambda \|\bm{a}_s\|^2
+\end{align*}
+Introduce \(\bm{K} = [\langle \bm{x}_i, \bm{x}_j \rangle]_{i, j = 1}^N \in \R^{N \times N}\).
+\begin{align*}
+    &\sum_{i = 1}^N ( \sum_{j=1}^N c_j \langle \bm{x}_j, \bm{x}_i\rangle - y_i)^2 + \lambda\sum_{j_1=1}^N \sum_{j_2=1}^N c_{j_1}c_{j_2} \langle \bm{x}_{j_1}\bm{x}_{j_2}\rangle + \lambda \|\bm{a}_s\|^2 \\
+    &=\sum_{i = 1}^N ((\bm{K}^T\bm{c})_i - y_i)^2 + \lambda \bm{c}^T \bm{K} \bm{c} + \lambda \|\bm{a}_s\|^2  
+\end{align*}
+We know:
+\begin{align*}
+    &\text{minimize}_{\bm{a} \in \R^n} \sum_{i = 1}^N ((\bm{K}^T\bm{c})_i - y_i)^2 + \lambda \bm{c}^T \bm{K} \bm{c} + \lambda \|\bm{a}_s\|^2   \\
+    &\iff \text{minimize}_{\bm{a} \in \R^n} \sum_{i = 1}^N ((\bm{K}^T\bm{c})_i - y_i)^2 + \lambda \bm{c}^T \bm{K} \bm{c} \\ 
+    &\text{ and } \text{minimize}_{\bm{a} \in \R^n} \lambda \|\bm{a}_s\|^2  \\
+    &\iff \bm{a}_s^* = \bm{0} \\
+    &\text{ and } \bm{c}^* = \text{argmin}_{\bm{c} \in \R^n} \sum_{i = 1}^N ((\bm{K}^T\bm{c})_i - y_i)^2 + \lambda \bm{c}^T \bm{K} \bm{c} \\ 
+\end{align*}
+In conclusion, the optimal \(\bm{a}^* = \sum_{i = 1}^N c_i^* \bm{x}_i\)
+
+
 \section*{Question 4:}
 4. Let \(f(\bm{x}) = \bm{x}^T\bm{A}\bm{x} + 2\bm{b}^T\bm{x} + c\), where \(\bm{A} \in \R^{n \times n}\) is a symmetric positive semidefinite matrix, \(b \in \R^n\), and \(c \in \R\). \\
 (a) Prove that \(\bm{x}\) is a global minimizer of \(f\) if and only if \(\bm{A}\bm{x} = -\bm{b}\). \\
 (b) Prove that \(f\) is bounded below over \(\R^n\) if and only if \(\bm{b} \in \{\bm{A}\bm{y}: \bm{y} \in \R^n\}\). \\
 \subsection*{Answer :}
+
 
 \section*{Question 5:}
 5. We consider the following optimization problem:
