@@ -145,15 +145,15 @@ Thus, the critical point is \(\left( \frac{1}{2}, -\frac{1}{2} \right)\)
     f(\bm{y}) &= \frac{1}{2} \|\bm{A}\bm{y} - \bm{b}\|_2^2 + \lambda\|\bm{y}\|_2^2 \\
     f(\bm{y}) &= \frac{1}{2} \|\bm{A}\bm{y} - \bm{A}\bm{x} + \bm{A}\bm{x} - \bm{b}\|_2^2 + \lambda\|\bm{y} - \bm{x} + \bm{x}\|_2^2 \\
     f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x}) + \bm{A}\bm{x} - \bm{b}\|_2^2 + \lambda\|(\bm{y} - \bm{x}) + \bm{x}\|_2^2 \\
-    f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|^2 + \langle \bm{A} (\bm{y} - \bm{x}), \bm{A}\bm{x} -\bm{b} \rangle+ \frac{1}{2}\|\bm{A}\bm{x} - \bm{b}\|_2^2 + \lambda\|\bm{y} - \bm{x}\|^2 + \lambda\langle \bm{y} - \bm{x}, \bm{x}\rangle + \lambda\|\bm{x}\|_2^2 \\
-    f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|^2 + \langle(\bm{y} - \bm{x}), \bm{A}^T(\bm{A}\bm{x} -\bm{b}) \rangle+ \frac{1}{2}\|\bm{A}\bm{x} - \bm{b}\|_2^2 + \lambda\|\bm{y} - \bm{x}\|^2 + \lambda\langle \bm{y} - \bm{x}, \bm{x}\rangle + \lambda\|\bm{x}\|_2^2 \\
-    f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|^2 + \langle(\bm{y} - \bm{x}), \bm{A}^T(\bm{A}\bm{x} -\bm{b}) \rangle+ f(\bm{x}) + \lambda\|\bm{y} - \bm{x}\|^2 + \lambda\langle \bm{y} - \bm{x}, \bm{x}\rangle \\
+    f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|_2^2 + \langle \bm{A} (\bm{y} - \bm{x}), \bm{A}\bm{x} -\bm{b} \rangle+ \frac{1}{2}\|\bm{A}\bm{x} - \bm{b}\|_2^2 + \lambda\|\bm{y} - \bm{x}\|_2^2 + \lambda\langle \bm{y} - \bm{x}, \bm{x}\rangle + \lambda\|\bm{x}\|_2^2 \\
+    f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|_2^2 + \langle(\bm{y} - \bm{x}), \bm{A}^T(\bm{A}\bm{x} -\bm{b}) \rangle+ \frac{1}{2}\|\bm{A}\bm{x} - \bm{b}\|_2^2 + \lambda\|\bm{y} - \bm{x}\|_2^2 + \lambda\langle \bm{y} - \bm{x}, \bm{x}\rangle + \lambda\|\bm{x}\|_2^2 \\
+    f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|_2^2 + \langle(\bm{y} - \bm{x}), \bm{A}^T(\bm{A}\bm{x} -\bm{b}) \rangle+ f(\bm{x}) + \lambda\|\bm{y} - \bm{x}\|_2^2 + \lambda\langle \bm{y} - \bm{x}, \bm{x}\rangle \\
 \end{align*}
 \begin{align*}
     &\lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{ |f(\bm{y}) - (f(\bm{x}) + \langle \bm{A}^T(\bm{A}\bm{x} - \bm{b}), \bm{y} - \bm{x}\rangle + \lambda \langle \bm{y} - \bm{x}, \bm{x} \rangle)| }{\|\bm{y} - \bm{x}\|_2} \\
-    &= \lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{\frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|^2 + \lambda \| \bm{y} - \bm{x}\|^2}{\|\bm{y} - \bm{x}\|_2} \\
-    &\leq \lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{\frac{1}{2} \|\bm{A}\|_2^2\|\bm{y} - \bm{x}\|^2 + \lambda \| \bm{y} - \bm{x}\|^2}{\|\bm{y} - \bm{x}\|_2} \\
-    &= \lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{1}{2} \|\bm{A}\|_2^2\|\bm{y} - \bm{x}\| + \lambda \| \bm{y} - \bm{x}\| \\
+    &= \lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{\frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|_2^2 + \lambda \| \bm{y} - \bm{x}\|_2^2}{\|\bm{y} - \bm{x}\|_2} \\
+    &\leq \lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{\frac{1}{2} \|\bm{A}\|_2^2\|\bm{y} - \bm{x}\|_2^2 + \lambda \| \bm{y} - \bm{x}\|_2^2}{\|\bm{y} - \bm{x}\|_2} \\
+    &= \lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{1}{2} \|\bm{A}\|_2^2\|\bm{y} - \bm{x}\|_2 + \lambda \| \bm{y} - \bm{x}\|_2 \\
     &= 0
 \end{align*}
 In conclusion, the gradient for(a) is \(\nabla f(\bm{x}) = \bm{A}^T(\bm{A}\bm{x} - \bm{b}) + 2\lambda \bm{x}\) \\
@@ -205,23 +205,24 @@ where \(\lambda \in \R\) is a regularization parameter, and we set the bias \(b 
 (a) We can denote \(\bm{a} = \bm{a}_s + \sum_{i=1}^N c_i \bm{x}_i\), where \(\bm{c} = [c_1, c_2, \cdots, c_N]^T \in \R^N\), and \(\langle \bm{a}_s, \bm{x}_i\rangle = 0\).
 \begin{align*}
     \sum_{i = 1}^N (\langle \bm{a}, \bm{x}_i\rangle - y_i)^2 + \lambda\|\bm{a}\|_2^2 &= \sum_{i = 1}^N (\langle \bm{a}_s + \sum_{j=1}^N c_j \bm{x}_j, \bm{x}_i\rangle - y_i)^2 + \lambda\| \bm{a}_s + \sum_{j=1}^N c_j \bm{x}_j\|_2^2   \\
-    &= \sum_{i = 1}^N (\langle \bm{a}_s + \sum_{j=1}^N c_j \bm{x}_j, \bm{x}_i\rangle - y_i)^2 + \lambda\| \bm{a}_s + \sum_{j=1}^N c_j \bm{x}_j\|_2^2 \\
-    &= \sum_{i = 1}^N ( \sum_{j=1}^N c_j \langle \bm{x}_j, \bm{x}_i\rangle - y_i)^2 + \lambda\sum_{j_1=1}^N \sum_{j_2=1}^N c_{j_1}c_{j_2} \langle \bm{x}_{j_1}\bm{x}_{j_2}\rangle + \lambda \|\bm{a}_s\|^2
+    &= \sum_{i = 1}^N ( \sum_{j=1}^N c_j \langle \bm{x}_j, \bm{x}_i\rangle - y_i)^2 + \lambda\sum_{j_1=1}^N \sum_{j_2=1}^N c_{j_1}c_{j_2} \langle \bm{x}_{j_1}\bm{x}_{j_2}\rangle + \lambda \|\bm{a}_s\|_2^2
 \end{align*}
 Introduce \(\bm{K} = [\langle \bm{x}_i, \bm{x}_j \rangle]_{i, j = 1}^N \in \R^{N \times N}\).
 \begin{align*}
-    &\sum_{i = 1}^N ( \sum_{j=1}^N c_j \langle \bm{x}_j, \bm{x}_i\rangle - y_i)^2 + \lambda\sum_{j_1=1}^N \sum_{j_2=1}^N c_{j_1}c_{j_2} \langle \bm{x}_{j_1}\bm{x}_{j_2}\rangle + \lambda \|\bm{a}_s\|^2 \\
-    &=\sum_{i = 1}^N ((\bm{K}^T\bm{c})_i - y_i)^2 + \lambda \bm{c}^T \bm{K} \bm{c} + \lambda \|\bm{a}_s\|^2  
+    &\sum_{i = 1}^N ( \sum_{j=1}^N c_j \langle \bm{x}_j, \bm{x}_i\rangle - y_i)^2 + \lambda\sum_{j_1=1}^N \sum_{j_2=1}^N c_{j_1}c_{j_2} \langle \bm{x}_{j_1}\bm{x}_{j_2}\rangle + \lambda \|\bm{a}_s\|_2^2 \\
+    &=\sum_{i = 1}^N ((\bm{K}^T\bm{c})_i - y_i)^2 + \lambda \bm{c}^T \bm{K} \bm{c} + \lambda \|\bm{a}_s\|_2^2  
 \end{align*}
 We know:
 \begin{align*}
     &\text{minimize}_{\bm{a} \in \R^n} \sum_{i = 1}^N ((\bm{K}^T\bm{c})_i - y_i)^2 + \lambda \bm{c}^T \bm{K} \bm{c} + \lambda \|\bm{a}_s\|^2   \\
-    &\iff \text{minimize}_{\bm{a} \in \R^n} \sum_{i = 1}^N ((\bm{K}^T\bm{c})_i - y_i)^2 + \lambda \bm{c}^T \bm{K} \bm{c} \\ 
-    &\text{ and } \text{minimize}_{\bm{a} \in \R^n} \lambda \|\bm{a}_s\|^2  \\
+    &\iff \text{minimize}_{\bm{c} \in \R^n} \sum_{i = 1}^N ((\bm{K}^T\bm{c})_i - y_i)^2 + \lambda \bm{c}^T \bm{K} \bm{c} \\ 
+    &\text{ and } \text{minimize}_{\bm{a}_s \in \R^n, \langle \bm{a}_s, \bm{x}_i\rangle = 0} \lambda \|\bm{a}_s\|^2  \\
     &\iff \bm{a}_s^* = \bm{0} \\
     &\text{ and } \bm{c}^* = \text{argmin}_{\bm{c} \in \R^n} \sum_{i = 1}^N ((\bm{K}^T\bm{c})_i - y_i)^2 + \lambda \bm{c}^T \bm{K} \bm{c} \\ 
 \end{align*}
 In conclusion, the optimal \(\bm{a}^* = \sum_{i = 1}^N c_i^* \bm{x}_i\)
+
+(b)
 
 
 \section*{Question 4:}
