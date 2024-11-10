@@ -191,7 +191,7 @@ In conclusion, the gradient of \(f(\bm{X})\) = \(\bm{b}^T\bm{X}\bm{c}\) is \(\na
 
 \section*{Question 3:}
 3. Let \(\{\bm{x}_i, y_i\}_{i = 1}^N\) be given with \(\bm{x}_i \in \R\) and \(y_i \in \R\). Assume \(N < n\). Consider the ridge regression \begin{align*}
-    \text{minimize}_{\bm{a}\in\R^N} \sum_{i = 1}^N (\langle \bm{a}, \bm{x}_i\rangle - y_i)^2 + \lambda\|\bm{a}\|_2^2,
+    \text{minimize}_{\bm{a}\in\R^n} \sum_{i = 1}^N (\langle \bm{a}, \bm{x}_i\rangle - y_i)^2 + \lambda\|\bm{a}\|_2^2,
 \end{align*}
 where \(\lambda \in \R\) is a regularization parameter, and we set the bias \(b = 0\) for simplicity. \\
 
@@ -215,10 +215,10 @@ Introduce \(\bm{K} = [\langle \bm{x}_i, \bm{x}_j \rangle]_{i, j = 1}^N \in \R^{N
 We know:
 \begin{align*}
     &\text{minimize}_{\bm{a} \in \R^n} \sum_{i = 1}^N ((\bm{K}^T\bm{c})_i - y_i)^2 + \lambda \bm{c}^T \bm{K} \bm{c} + \lambda \|\bm{a}_s\|^2   \\
-    &\iff \text{minimize}_{\bm{c} \in \R^n} \sum_{i = 1}^N ((\bm{K}^T\bm{c})_i - y_i)^2 + \lambda \bm{c}^T \bm{K} \bm{c} \\ 
+    &\iff \text{minimize}_{\bm{c} \in \R^N} \sum_{i = 1}^N ((\bm{K}^T\bm{c})_i - y_i)^2 + \lambda \bm{c}^T \bm{K} \bm{c} \\ 
     &\text{ and } \text{minimize}_{\bm{a}_s \in \R^n, \langle \bm{a}_s, \bm{x}_i\rangle = 0} \lambda \|\bm{a}_s\|^2  \\
     &\iff \bm{a}_s^* = \bm{0} \\
-    &\text{ and } \bm{c}^* = \text{argmin}_{\bm{c} \in \R^n} \sum_{i = 1}^N ((\bm{K}^T\bm{c})_i - y_i)^2 + \lambda \bm{c}^T \bm{K} \bm{c} \\ 
+    &\text{ and } \bm{c}^* = \text{argmin}_{\bm{c} \in \R^N} \sum_{i = 1}^N ((\bm{K}^T\bm{c})_i - y_i)^2 + \lambda \bm{c}^T \bm{K} \bm{c} \\ 
 \end{align*}
 In conclusion, the optimal \(\bm{a}^* = \sum_{i = 1}^N c_i^* \bm{x}_i\)
 
