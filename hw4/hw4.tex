@@ -275,6 +275,20 @@ Continue, we have
 So we in conclusion, we have \(f(\bm{y}) \geq (f(\bm{x} )+ \langle \nabla f(\bm{x}), \bm{y} - \bm{x}\rangle)\), which implies that f(x) is convex.
 So \(\nabla f(\bm{x}*) = 0 \iff\) \(\bm{x}*\) is the global minimizer. i.e. \\
 \(\bm{x}\) is a global minimizer \( \iff \bm{A}\bm{x} = -\bm{b}\)
+
+(b) 
+Proof: \(f\) is bounded below \(\implies \bm{b} \in \{\bm{A}\bm{y}, \bm{y} \in \R^n\}\) .   \\
+Proof: \(\bm{b} \in \{\bm{A}\bm{y}, \bm{y} \in \R^n\}\implies f\) is bounded below.   \\
+According to (a), we know that \(\nabla f(\bm{x}*) = 0 \iff\) \(\bm{x}*\) is the global minimizer. \\
+\begin{align*}
+    \nabla f(\bm{x}) = 2\bm{A}\bm{x} + 2\bm{b}\\ 
+    \bm{b} \in \bm{A}\bm{y}, \bm{y} \in \R^n \\
+    \exists \bm{x} \in \R^n, \text{ s.t. } \bm{A}\bm{x} = -\bm{b}\\
+    \text{ i.e. } \exists \bm{x}* \in \R^n, \text{} \nabla f(\bm{x}*) = 0 
+\end{align*} 
+\(f(\bm{x}) \geq f(\bm{x}*) \implies\) \(f\) is bounded below.
+
+
 \section*{Question 5:}
 5. We consider the following optimization problem:
 \begin{align}
