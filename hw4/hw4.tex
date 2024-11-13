@@ -222,7 +222,11 @@ We know:
 \end{align*}
 In conclusion, the optimal \(\bm{a}^* = \sum_{i = 1}^N c_i^* \bm{x}_i\)
 
-(b)
+(b) 
+The re-express formulation show below:
+\begin{align*}
+    \text{minimize}_{\bm{c} \in \R^N} \sum_{i = 1}^N ((\bm{K}^T\bm{c})_i - y_i)^2 + \lambda \bm{c}^T \bm{K} \bm{c}
+\end{align*}
 
 
 \section*{Question 4:}
@@ -230,8 +234,47 @@ In conclusion, the optimal \(\bm{a}^* = \sum_{i = 1}^N c_i^* \bm{x}_i\)
 (a) Prove that \(\bm{x}\) is a global minimizer of \(f\) if and only if \(\bm{A}\bm{x} = -\bm{b}\). \\
 (b) Prove that \(f\) is bounded below over \(\R^n\) if and only if \(\bm{b} \in \{\bm{A}\bm{y}: \bm{y} \in \R^n\}\). \\
 \subsection*{Answer :}
-
-
+(a) We know that:
+\begin{align*}
+    f(\bm{x}) &= \bm{x}^T\bm{A}\bm{x} = \sum_{i=1}^n \sum_{j = 1}^n x_i a_{ij} x_j \\
+    \frac {\partial f}{\partial x_i} &= a_{ij}x_j + a_{ji}x_j = 2a_{ij}x_j \\
+    \nabla f(\bm{x}) &= 2\bm{A}\bm{x}
+\end{align*}
+So we can get the gradient of f(x):
+\begin{align*}
+    \nabla f(\bm{x}) = 2\bm{A}\bm{x} + 2\bm{b} \\
+\end{align*}
+To prove that f(x) is convex, we have:
+\begin{align*}
+    f(\bm{x}) + \langle \nabla f(\bm{x}), \bm{y} - \bm{x}\rangle &=  \\
+    &= \bm{x}^T\bm{A}\bm{x} + 2\bm{b}^T\bm{x} + c + 2\bm{x}^T\bm{A}(\bm{y} - \bm{x}) + 2\bm{b}^T(\bm{y} - \bm{x}) \\
+    &= \bm{x}^T\bm{A}\bm{x} + 2\bm{b}^T\bm{x} + c + 2\bm{x}^T\bm{A}\bm{y} - 2\bm{x}^T\bm{A}\bm{x} + 2\bm{b}^T\bm{y} - 2\bm{b}^T\bm{x} \\
+    &= \bm{x}^T\bm{A}\bm{x} + c + 2\bm{x}^T\bm{A}\bm{y} - 2\bm{x}^T\bm{A}\bm{x} + 2\bm{b}^T\bm{y} \\
+    &= c + 2\bm{x}^T\bm{A}\bm{y} - \bm{x}^T\bm{A}\bm{x} + 2\bm{b}^T\bm{y} \\
+\end{align*}
+\begin{align*}
+    f(\bm{y}) - (f(\bm{x} )+ \langle \nabla f(\bm{x}), \bm{y} - \bm{x}\rangle) &=  \\
+    &= \bm{y}^T\bm{A}\bm{y} + 2b^T\bm{y} + c - c - 2\bm{x}^T\bm{A}\bm{y} + \bm{x}^T\bm{A}\bm{x} - 2\bm{b}^T\bm{y} \\
+    &= \bm{y}^T\bm{A}\bm{y} - 2\bm{x}^T\bm{A}\bm{y} + \bm{x}^T\bm{A}\bm{x}  \\
+\end{align*}
+We know:
+\begin{align*}
+    (\bm{x}^T\bm{A}\bm{y})^T = \bm{y}^T(\bm{x}^T\bm{A})^T = \bm{y}^T(\bm{A}^T\bm{x}) = \bm{y}^T\bm{A}\bm{x} \\
+    \bm{x}^T\bm{A}\bm{y} = \langle \bm{A}\bm{x}, \bm{y}\rangle \\
+    \bm{y}^T\bm{A}\bm{x} = \langle \bm{A}\bm{y}, \bm{x}\rangle \\
+    \text{ We know the transpose of a scalar is itself, so} \\
+    \bm{x}^T\bm{A}\bm{y} = \bm{y}^T\bm{A}\bm{x}
+\end{align*}
+Continue, we have
+\begin{align*}
+    &= \bm{y}^T\bm{A}\bm{y} - 2\bm{x}^T\bm{A}\bm{y} + \bm{x}^T\bm{A}\bm{x}  \\
+    &= \bm{y}^T\bm{A}\bm{y} - \bm{x}^T\bm{A}\bm{y} - \bm{y}^T\bm{A}\bm{x} + \bm{x}^T\bm{A}\bm{x} \\
+    &= \langle \bm{A}\bm{y}, \bm{y} - \bm{x}\rangle - \langle \bm{A}\bm{x}, \bm{y} - \bm{x} \rangle \\
+    &= \langle \bm{A}\bm{y} - \bm{A}\bm{x}, \bm{y} - \bm{x} \rangle \geq 0 \\
+\end{align*}
+So we in conclusion, we have \(f(\bm{y}) \geq (f(\bm{x} )+ \langle \nabla f(\bm{x}), \bm{y} - \bm{x}\rangle)\), which implies that f(x) is convex.
+So \(\nabla f(\bm{x}*) = 0 \iff\) \(\bm{x}*\) is the global minimizer. i.e. \\
+\(\bm{x}\) is a global minimizer \( \iff \bm{A}\bm{x} = -\bm{b}\)
 \section*{Question 5:}
 5. We consider the following optimization problem:
 \begin{align}
