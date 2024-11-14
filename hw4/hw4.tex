@@ -184,7 +184,7 @@ In conclusion, the gradient of \(f(\bm{X})\) = \(\bm{b}^T\bm{X}\bm{c}\) is \(\na
         \vdots &\vdots & \vdots &\vdots \\
         2b_n\bm{X}_{1n}c_1 & 2b_n\bm{X}_{2n}c_2 & \cdots & 2b_n\bm{X}_{nn}c_n \\
     \end{bmatrix} \\
-    \nabla_{\bm{X}} f(\bm{X}) &= 2\bm{b}\bm{X}\bm{c}^T
+    \nabla_{\bm{X}} f(\bm{X}) &= 2\bm{X}\bm{b}\bm{c}^T
 \end{align*}
 
 
@@ -205,11 +205,11 @@ where \(\lambda \in \R\) is a regularization parameter, and we set the bias \(b 
 (a) We can denote \(\bm{a} = \bm{a}_s + \sum_{i=1}^N c_i \bm{x}_i\), where \(\bm{c} = [c_1, c_2, \cdots, c_N]^T \in \R^N\), and \(\langle \bm{a}_s, \bm{x}_i\rangle = 0\).
 \begin{align*}
     \sum_{i = 1}^N (\langle \bm{a}, \bm{x}_i\rangle - y_i)^2 + \lambda\|\bm{a}\|_2^2 &= \sum_{i = 1}^N (\langle \bm{a}_s + \sum_{j=1}^N c_j \bm{x}_j, \bm{x}_i\rangle - y_i)^2 + \lambda\| \bm{a}_s + \sum_{j=1}^N c_j \bm{x}_j\|_2^2   \\
-    &= \sum_{i = 1}^N ( \sum_{j=1}^N c_j \langle \bm{x}_j, \bm{x}_i\rangle - y_i)^2 + \lambda\sum_{j_1=1}^N \sum_{j_2=1}^N c_{j_1}c_{j_2} \langle \bm{x}_{j_1}\bm{x}_{j_2}\rangle + \lambda \|\bm{a}_s\|_2^2
+    &= \sum_{i = 1}^N ( \sum_{j=1}^N c_j \langle \bm{x}_j, \bm{x}_i\rangle - y_i)^2 + \lambda\sum_{j_1=1}^N \sum_{j_2=1}^N c_{j_1}c_{j_2} \langle \bm{x}_{j_1},\bm{x}_{j_2}\rangle + \lambda \|\bm{a}_s\|_2^2
 \end{align*}
 Introduce \(\bm{K} = [\langle \bm{x}_i, \bm{x}_j \rangle]_{i, j = 1}^N \in \R^{N \times N}\).
 \begin{align*}
-    &\sum_{i = 1}^N ( \sum_{j=1}^N c_j \langle \bm{x}_j, \bm{x}_i\rangle - y_i)^2 + \lambda\sum_{j_1=1}^N \sum_{j_2=1}^N c_{j_1}c_{j_2} \langle \bm{x}_{j_1}\bm{x}_{j_2}\rangle + \lambda \|\bm{a}_s\|_2^2 \\
+    &\sum_{i = 1}^N ( \sum_{j=1}^N c_j \langle \bm{x}_j, \bm{x}_i\rangle - y_i)^2 + \lambda\sum_{j_1=1}^N \sum_{j_2=1}^N c_{j_1}c_{j_2} \langle \bm{x}_{j_1},\bm{x}_{j_2}\rangle + \lambda \|\bm{a}_s\|_2^2 \\
     &=\sum_{i = 1}^N ((\bm{K}^T\bm{c})_i - y_i)^2 + \lambda \bm{c}^T \bm{K} \bm{c} + \lambda \|\bm{a}_s\|_2^2  
 \end{align*}
 We know:
@@ -236,8 +236,9 @@ The re-express formulation show below:
 \subsection*{Answer :}
 (a) We know that:
 \begin{align*}
-    f(\bm{x}) &= \bm{x}^T\bm{A}\bm{x} = \sum_{i=1}^n \sum_{j = 1}^n x_i a_{ij} x_j \\
-    \frac {\partial f}{\partial x_i} &= a_{ij}x_j + a_{ji}x_j = 2a_{ij}x_j \\
+    f(\bm{x}) &= \bm{x}^T\bm{A}\bm{x} = \sum_{i=1}^n \sum_{j = 1}^n x_i A_{ij} x_j \\
+    \frac {\partial f}{\partial x_k} &= \sum_{j=1}^{n}A_{kj}x_j + \sum_{i = 1}^{n}x_iA_{ik} \\
+    \nabla f(\bm{x}) &= \bm{A}\bm{x} + \bm{A}^T\bm{x}\\ 
     \nabla f(\bm{x}) &= 2\bm{A}\bm{x}
 \end{align*}
 So we can get the gradient of f(x):
