@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1731559613.07228 "c:/Users/90586/Desktop/5004-hw/hw4/hw4.tex" "hw4.pdf" "hw4" 1731559613.74428 0
-  "c:/Users/90586/Desktop/5004-hw/hw4/hw4.tex" 1731559612 16306 18cd52d31e88d369d3b2e1f395d9ad02 ""
+["pdflatex"] 1731566829.91712 "c:/Users/90586/Desktop/5004-hw/hw4/hw4.tex" "hw4.pdf" "hw4" 1731566830.62564 0
+  "c:/Users/90586/Desktop/5004-hw/hw4/hw4.tex" 1731566829 16970 8b0c90a4329aac29fdaedf0aa8a7ada2 ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1726238174 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1726236892 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1726236892 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -69,8 +69,8 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1726240920 5543950 2aa73a438b7054b2327b796fbe5f4275 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726241051 3326055 9fb2e5b8b2da0010108fd762bfc00143 ""
   "c:/texlive/2024/texmf.cnf" 1726240900 713 e69b156964470283e0530f5060668171 ""
-  "hw4.aux" 1731559613 32 f852561997c05a7d986acd1deeb530ec "pdflatex"
-  "hw4.tex" 1731559612 16306 18cd52d31e88d369d3b2e1f395d9ad02 ""
+  "hw4.aux" 1731566830 32 f852561997c05a7d986acd1deeb530ec "pdflatex"
+  "hw4.tex" 1731566829 16970 8b0c90a4329aac29fdaedf0aa8a7ada2 ""
   (generated)
   "hw4.aux"
   "hw4.log"

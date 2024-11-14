@@ -278,8 +278,19 @@ So \(\nabla f(\bm{x}*) = 0 \iff\) \(\bm{x}*\) is the global minimizer. i.e. \\
 
 (b) 
 Proof: \(f\) is bounded below \(\implies \bm{b} \in \{\bm{A}\bm{y}, \bm{y} \in \R^n\}\) .   \\
-Assume \(\bm{b} \notin \bm{A}\bm{y}\), which \(implies \nabla f(\bm{x}) \neq \bm{0}\)\\
-
+(i) If\(\bm{A}\) is full rank, then \(\bm{b} \in \bm{A}\bm{y}, \bm{y} \in \R^n\) is easy to prove, since \(\bm{A}\bm{y} \equiv \R^n\) \\
+(ii) If \(\bm{A}\) is not full rank, then there exists a vector \(\bm{d} \ne \bm{0}\), s.t. \(\bm{A}\bm{d} = \bm{0}\) \\
+we can choose \( \bm{b} = \bm{d}\) \\
+\begin{align*}
+    f(-\bm{d}) = \bm{d}^T\bm{A}\bm{d} - 2\bm{d}^T\bm{d} + c \\
+    f(-\bm{d}) = -2\bm{d}^T\bm{d} + c \\
+    f(-\bm{d}) = -2\|\bm{d}\|^2 + c \\
+\end{align*}
+We know that \(\bm{d}^T\bm{d} > 0\), since\( \bm{d} \ne \bm{0}\) \\
+\begin{align*}
+    \lim_{\|\bm{d}\|^2 \to \infty} -2\|\bm{d}\|^2 + c = -\infty \\
+\end{align*}
+s.t. if \(f\) is bounded below, then \(\bm{A}\) must be full rank, which implies \(\bm{b} \in \bm{A}\bm{y}\) \\
 
 Proof: \(\bm{b} \in \{\bm{A}\bm{y}, \bm{y} \in \R^n\}\implies f\) is bounded below.   \\
 According to (a), we know that \(\nabla f(\bm{x}*) = 0 \iff\) \(\bm{x}*\) is the global minimizer. \\
