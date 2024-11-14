@@ -145,16 +145,20 @@ Thus, the critical point is \(\left( \frac{1}{2}, -\frac{1}{2} \right)\)
     f(\bm{y}) &= \frac{1}{2} \|\bm{A}\bm{y} - \bm{b}\|_2^2 + \lambda\|\bm{y}\|_2^2 \\
     f(\bm{y}) &= \frac{1}{2} \|\bm{A}\bm{y} - \bm{A}\bm{x} + \bm{A}\bm{x} - \bm{b}\|_2^2 + \lambda\|\bm{y} - \bm{x} + \bm{x}\|_2^2 \\
     f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x}) + \bm{A}\bm{x} - \bm{b}\|_2^2 + \lambda\|(\bm{y} - \bm{x}) + \bm{x}\|_2^2 \\
-    f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|_2^2 + \langle \bm{A} (\bm{y} - \bm{x}), \bm{A}\bm{x} -\bm{b} \rangle+ \frac{1}{2}\|\bm{A}\bm{x} - \bm{b}\|_2^2 + \lambda\|\bm{y} - \bm{x}\|_2^2 + \lambda\langle \bm{y} - \bm{x}, \bm{x}\rangle + \lambda\|\bm{x}\|_2^2 \\
-    f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|_2^2 + \langle(\bm{y} - \bm{x}), \bm{A}^T(\bm{A}\bm{x} -\bm{b}) \rangle+ \frac{1}{2}\|\bm{A}\bm{x} - \bm{b}\|_2^2 + \lambda\|\bm{y} - \bm{x}\|_2^2 + \lambda\langle \bm{y} - \bm{x}, \bm{x}\rangle + \lambda\|\bm{x}\|_2^2 \\
-    f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|_2^2 + \langle(\bm{y} - \bm{x}), \bm{A}^T(\bm{A}\bm{x} -\bm{b}) \rangle+ f(\bm{x}) + \lambda\|\bm{y} - \bm{x}\|_2^2 + \lambda\langle \bm{y} - \bm{x}, \bm{x}\rangle \\
+    f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|_2^2 + \langle \bm{A} (\bm{y} - \bm{x}), \bm{A}\bm{x} -\bm{b} \rangle+ \frac{1}{2}\|\bm{A}\bm{x} - \bm{b}\|_2^2 + \lambda\|\bm{y} - \bm{x}\|_2^2 + 2\lambda\langle \bm{y} - \bm{x}, \bm{x}\rangle + \lambda\|\bm{x}\|_2^2 \\
+    f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|_2^2 + \langle(\bm{y} - \bm{x}), \bm{A}^T(\bm{A}\bm{x} -\bm{b}) \rangle+ \frac{1}{2}\|\bm{A}\bm{x} - \bm{b}\|_2^2 + \lambda\|\bm{y} - \bm{x}\|_2^2 + 2\lambda\langle \bm{y} - \bm{x}, \bm{x}\rangle + \lambda\|\bm{x}\|_2^2 \\
+    f(\bm{y}) &= \frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|_2^2 + \langle(\bm{y} - \bm{x}), \bm{A}^T(\bm{A}\bm{x} -\bm{b}) \rangle+ f(\bm{x}) + \lambda\|\bm{y} - \bm{x}\|_2^2 + 2\lambda\langle \bm{y} - \bm{x}, \bm{x}\rangle \\
 \end{align*}
 \begin{align*}
-    &\lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{ |f(\bm{y}) - (f(\bm{x}) + \langle \bm{A}^T(\bm{A}\bm{x} - \bm{b}), \bm{y} - \bm{x}\rangle + \lambda \langle \bm{y} - \bm{x}, \bm{x} \rangle)| }{\|\bm{y} - \bm{x}\|_2} \\
-    &= \lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{\frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|_2^2 + \lambda \| \bm{y} - \bm{x}\|_2^2}{\|\bm{y} - \bm{x}\|_2} \\
-    &\leq \lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{\frac{1}{2} \|\bm{A}\|_2^2\|\bm{y} - \bm{x}\|_2^2 + \lambda \| \bm{y} - \bm{x}\|_2^2}{\|\bm{y} - \bm{x}\|_2} \\
-    &= \lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{1}{2} \|\bm{A}\|_2^2\|\bm{y} - \bm{x}\|_2 + \lambda \| \bm{y} - \bm{x}\|_2 \\
+    &\lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{ |f(\bm{y}) - (f(\bm{x}) + \langle \bm{A}^T(\bm{A}\bm{x} - \bm{b}), \bm{y} - \bm{x}\rangle + 2\lambda \langle \bm{y} - \bm{x}, \bm{x} \rangle)| }{\|\bm{y} - \bm{x}\|_2} \\
+    &= \lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{\frac{1}{2} \|\bm{A}(\bm{y} - \bm{x})\|_2^2 + 2\lambda \| \bm{y} - \bm{x}\|_2^2}{\|\bm{y} - \bm{x}\|_2} \\
+    &\leq \lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{\frac{1}{2} \|\bm{A}\|_2^2\|\bm{y} - \bm{x}\|_2^2 + 2\lambda \| \bm{y} - \bm{x}\|_2^2}{\|\bm{y} - \bm{x}\|_2} \\
+    &= \lim_{\|\bm{y} - \bm{x}\|_2 \to 0} \frac{1}{2} \|\bm{A}\|_2^2\|\bm{y} - \bm{x}\|_2 + 2\lambda \| \bm{y} - \bm{x}\|_2 \\
     &= 0
+\end{align*}
+According
+\begin{align*}
+    f(\bm{y}) - (f(\bm{x}) + \langle \bm{A}^T(\bm{A}\bm{x} - \bm{b}), \bm{y} - \bm{x}\rangle + 2\lambda \langle \bm{y} - \bm{x}, \bm{x} \rangle) 
 \end{align*}
 In conclusion, the gradient for(a) is \(\nabla f(\bm{x}) = \bm{A}^T(\bm{A}\bm{x} - \bm{b}) + 2\lambda \bm{x}\) \\
 
