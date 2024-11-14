@@ -181,14 +181,20 @@ In conclusion, the gradient of \(f(\bm{X})\) = \(\bm{b}^T\bm{X}\bm{c}\) is \(\na
 (c) We consider\\
 \begin{align*}
     f(\bm{X}) &= \sum_{i=1}^{n}\sum_{j=1}^{n} b_iX_{ji}X_{ij}c_j \\
-    \frac{\partial f}{\partial X_{ij}} &= b_iX_{ji}c_j + b_iX_{ji}c_j = 2b_iX_{ji}c_j    \\ 
+    \frac{\partial f}{\partial X_{ij}} &= b_iX_{ji}c_j + b_jX_{ji}c_i \\ 
     \nabla_{\bm{X}} f(\bm{X}) &= \begin{bmatrix}
-        2b_1\bm{X}_{11}c_1 & 2b_1\bm{X}_{21}c_2 & \cdots & 2b_1\bm{X}_{n1}c_n \\
-        2b_2\bm{X}_{12}c_1 & 2b_2\bm{X}_{22}c_2 & \cdots & 2b_2\bm{X}_{n2}c_n \\
+        b_1\bm{X}_{11}c_1 & b_1\bm{X}_{21}c_2 & \cdots & b_1\bm{X}_{n1}c_n \\
+        b_2\bm{X}_{12}c_1 & b_2\bm{X}_{22}c_2 & \cdots & b_2\bm{X}_{n2}c_n \\
         \vdots &\vdots & \vdots &\vdots \\
-        2b_n\bm{X}_{1n}c_1 & 2b_n\bm{X}_{2n}c_2 & \cdots & 2b_n\bm{X}_{nn}c_n \\
-    \end{bmatrix} \\
-    \nabla_{\bm{X}} f(\bm{X}) &= 2\bm{X}\bm{b}\bm{c}^T
+        b_n\bm{X}_{1n}c_1 & b_n\bm{X}_{2n}c_2 & \cdots & b_n\bm{X}_{nn}c_n \\
+    \end{bmatrix}  + 
+    \begin{bmatrix}
+        b_1\bm{X}_{11}c_1 & b_2\bm{X}_{21}c_1 & \cdots & b_n\bm{X}_{n1}c_1 \\
+        b_1\bm{X}_{12}c_2 & b_2\bm{X}_{22}c_2 & \cdots & b_n\bm{X}_{n2}c_2 \\
+        \vdots &\vdots & \vdots &\vdots \\
+        b_1\bm{X}_{1n}c_n & b_2\bm{X}_{2n}c_n & \cdots & b_n\bm{X}_{nn}c_n \\
+    \end{bmatrix}   \\
+    \nabla_{\bm{X}} f(\bm{X}) &= \bm{X}\bm{b}^T\bm{c} + \bm{X}\bm{b}\bm{c}^T
 \end{align*}
 
 
