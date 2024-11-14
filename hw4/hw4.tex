@@ -278,6 +278,9 @@ So \(\nabla f(\bm{x}*) = 0 \iff\) \(\bm{x}*\) is the global minimizer. i.e. \\
 
 (b) 
 Proof: \(f\) is bounded below \(\implies \bm{b} \in \{\bm{A}\bm{y}, \bm{y} \in \R^n\}\) .   \\
+Assume \(\bm{b} \notin \bm{A}\bm{y}\), which \(implies \nabla f(\bm{x}) \neq \bm{0}\)\\
+
+
 Proof: \(\bm{b} \in \{\bm{A}\bm{y}, \bm{y} \in \R^n\}\implies f\) is bounded below.   \\
 According to (a), we know that \(\nabla f(\bm{x}*) = 0 \iff\) \(\bm{x}*\) is the global minimizer. \\
 \begin{align*}
@@ -302,4 +305,37 @@ where \(\bm{a}_1, \cdots \bm{a}_m \in \R^n \text{ and } b_1, \cdots b_m \in \R\)
 
 
 \subsection*{Answer}
+(a) 
+\begin{align*}
+    g(\bm{x}) &= \sum_{i=1}^m \text{exp}(\bm{a}_i^T\bm{x} + b_i) \\
+    \nabla f(\bm{x}) &= \frac{1}{g(\bm{x})}\nabla g(\bm{x}) \\
+    g(\bm{x}) &= \sum_{i = 1}^m \text{exp}(\bm{a}_i^T\bm{x} + b_i) \\
+    \nabla g(\bm{x}) &= \sum_{i = 1}^m \text{exp(}\bm{a}_i^T\bm{x} + b_i)\bm{a}_i \\
+    \nabla f(\bm{x}) &= \frac{1}{\sum_{i=1}^m \text{exp}(\bm{a}_i^T\bm{x} + b_i)} \sum_{i = 1}^m \text{exp(}\bm{a}_i^T\bm{x} + b_i)\bm{a}_i 
+\end{align*}
+
+
+(b)
+We can use Jensen's Inequality to prove this function is convex. \\
+\begin{align*}
+    f(t\bm{x} + (1-t)\bm{y}) \leq tf(\bm{x}) + (1 - t)f(\bm{y}) \\
+\end{align*}
+     take \(t = 1/2\)  \\
+\begin{align*}
+    f(t\bm{x} + (1-t)\bm{y}) &= log\left( \sum_{i=1}^{n} \text{exp}(\frac 1 2(\bm{a}_i\bm{x} + b_i + \bm{a}_i\bm{y} + b_i)) \right) \\
+    \text{ for the right hand side, we know:} \\
+    \text{RHS} &= \frac{1}{2}log(\sum_{i=1}^n\text{exp}(\bm{a}_i\bm{x} + b_i)) + \frac{1}{2}log(\sum_{i=1}^n\text{exp}(\bm{a}_i\bm{y} + b_i)) \\
+    &= \frac 1 2 log(\sum_{i=1}^{n}\text{exp}(\bm{a}_i \bm{x} + b_i) \sum_{i=1}^{n}\text{exp}(\bm{a}_i \bm{y} + b_i))\\
+    &= log(\sum_{i=1}^{n}\text{exp}(\bm{a}_i \bm{x} + b_i)^{1/2} \sum_{i=1}^{n}\text{exp}(\bm{a}_i \bm{y} + b_i)^{1/2})\\
+\end{align*}
+According to CS-inequality:
+\begin{align*}
+    \sum_{i=1}^{n}\text{exp}(\frac{1}{2}(\bm{a}_i\bm{x} + b_i))\text{exp}(\frac{1}{2}(\bm{a}_i\bm{y} + b_i)) &\leq \left( \sum_{i=1}^{n}\text{exp}(\bm{a}_i \bm{x} + b_i) \right)^{1/2}\left( \sum_{i=1}^{n}\text{exp}(\bm{a}_i \bm{y} + b_i) \right)^{1/2} \\ 
+    f(1/2\bm{x} + 1/2\bm{y}) &\leq 1/2f(\bm{x}) + 1/2f(\bm{y}) \\
+\end{align*}
+In conclusion,\(f(\bm{x})\) is midpoint convex, which is equivalent to the convexity if the function is continuous. \\
+Since \(f(\bm{x})\) is convex, any local minimizer is also a global minimum. Gradient descent is guaranteed to converge to a global minimizer.
+
+
+
 \end{document}
