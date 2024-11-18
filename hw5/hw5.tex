@@ -1,0 +1,108 @@
+
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{bm}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+% 设置页边距
+\geometry{
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm,
+}
+
+\begin{document}
+
+\title{5004 Homework 2}
+\author{RONG Shuo}
+\date{\today}
+\maketitle
+
+
+\section*{Question 1:}
+1. Let \(T: \R^3 \to \R^2\) be a linear transformation. If \(T\) satisfies 
+\begin{align*}
+    T\begin{bmatrix}
+        1 \\
+        0 \\
+        -1 
+    \end{bmatrix} = \begin{bmatrix}
+        2 \\
+        3 
+    \end{bmatrix}
+    \text{ , and }  
+    T\begin{bmatrix}
+        2 \\
+        1 \\
+        3
+    \end{bmatrix} = \begin{bmatrix}
+        -1 \\
+        0
+    \end{bmatrix},
+\end{align*} then find 
+\begin{align*}
+    T\begin{bmatrix}
+        8 \\
+        3 \\
+        7
+    \end{bmatrix}
+\end{align*}.
+
+\subsection*{Answer}
+
+\section*{Question 2:}
+2. Find the Jacobian matrix of the following vector-valued multi-variable functions. \\
+(a) \(f:\R^n \to \R^m \) is defined by \(f(\bm{x}) = \bm{A}\bm{x} - \bm{b}\), where \(\bm{x} \in \R^n\), \(\bm{A} \in \R^{m \times n}, \bm{b} \in \R^n\). \\
+(b) \(f: R^n \to \R^n\) is defined by \(f(\bm{x}) = \bm{x}\bm{x}^T\bm{a}\), where \(\bm{x} \in \R^n\), \(\bm{a} \in \R^n\).
+
+\subsection*{Answer}
+
+
+\section*{Question 3:}
+3. Let \(f : \R^2 \to \R\), \(g : \R^2 \to \R^2\), \(g(x, y) = (x^2y, x-y)\) and \(h = f \circ g = f(g(x, y))\). Find \(\frac {\partial h}{\partial x}|_{x=1, y=2}\) if
+\(\frac{\partial f}{\partial x}|_{x=2, y=-1} = 3\) and \(\frac{\partial f}{\partial y}|_{x=2, y=-1} = -2\). (Hint: use the chain rule)
+
+\subsection{Answer :}
+
+
+\section*{Question 4:}
+Let \(f(t) = f_1(t) * f_2(t)\) be the convolution of two functions \(f_1(t)\) and \(f_2(t)\) on \(\R\), i.e.,
+\begin{align*}
+    f(t) = \int_{-\infty}^{+\infty} f_1(t - s)f_2(s)ds
+\end{align*}
+Let \(a, a_1, a_2\) be real number.
+
+(i) Prove the following identity:
+\begin{align*}
+    f_1(t-a)*f_2(t) = f_1(t) * f_2(t-a) = f(t-a).
+\end{align*}
+(ii) Prove the following identity:
+\begin{align*}
+    f_1(t-a_1) * f_2(t-a_2) = f(t-a_1-a_2).
+\end{align*}
+
+\section*{Question 5:}
+5. Let \(V_1\) and \(V_2\) be two Hilbert spaces with the inner products \(\langle \cdot, \cdot \rangle_{V_1}\), and \(\langle \cdot, \cdot\rangle_{V_2}\), respectively.
+Let \(T \in \mathcal{L}(V_1, V_2)\), i.e., \(T: V_1 \to V_2\) be a bounded linear operator. \\
+(a) Let \(S:V_2 \to V_1\) be an operator satisfying \(\langle T\bm{x}, \bm{y}\rangle_{V_2} = \langle \bm{x}, S\bm{y}\rangle_{V_1}\) for any \(\bm{x} \in V_1\) and \(\bm{y} \in V_2\).
+Prove that \(S\) is a bounded linear operator. (COnsequently, \(S\) is the adjoint of \(T\), i.e., \(S = T^*\)) \\
+(b) Prove that \((T^*)^* = T\). \\
+(c) Prove that \(\|T\| = \|T^*\|\).
+
+
+\subsection*{Answer}
+
+\section*{Question 6:}
+Consider the vector space \(\ell_{\infty}\) equipped with the norm \(\|\cdot\|_{\infty}\). Define the operator \(T: \ell_{\infty} \to \ell_{\infty}\) by \(T(\{x_n\}_{n \in N}) = \{y_n\}_{n\in N}\) where \(y_n = x_{n+1}\). \\
+(a) Prove that \(T\) is a linear operator. \\
+(b) Prove that \(T\) is a bounded operator. \\
+(c) Prove that \(\|T\|=1\).
+
+\subsection*{Answer}
+\end{document}
