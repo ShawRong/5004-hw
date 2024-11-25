@@ -110,16 +110,80 @@ So in conclusion,
 \section*{Question 2:}
 2. Find the Jacobian matrix of the following vector-valued multi-variable functions. \\
 (a) \(f:\R^n \to \R^m \) is defined by \(f(\bm{x}) = \bm{A}\bm{x} - \bm{b}\), where \(\bm{x} \in \R^n\), \(\bm{A} \in \R^{m \times n}, \bm{b} \in \R^n\). \\
-(b) \(f: R^n \to \R^n\) is defined by \(f(\bm{x}) = \bm{x}\bm{x}^T\bm{a}\), where \(\bm{x} \in \R^n\), \(\bm{a} \in \R^n\).
+(b) \(f: \R^n \to \R^n\) is defined by \(f(\bm{x}) = \bm{x}\bm{x}^T\bm{a}\), where \(\bm{x} \in \R^n\), \(\bm{a} \in \R^n\).
 
 \subsection*{Answer}
+Assume that:
+\begin{align*}
+    \bm{A}_i &= [A_{ij}]_{j=1}^n, \bm{A}_i \in \R^n\\
+    b_i &= \bm{b}_i, b_i \in \R  \\
+    f_i(\bm{x}) &= \langle \bm{A}_i, \bm{x} \rangle - b_i 
+\end{align*}
+We know that:
+\begin{align*}
+    f(\bm{x}) = \bm{A}\bm{x}-\bm{b} \\
+    f(\bm{x}) = \begin{bmatrix}f_1(\bm{x}) \\ \vdots \\ f_n(\bm{x})\end{bmatrix} \\
+    Df(\bm{x}) = \begin{bmatrix}\nabla f_1(\bm{x})^T \\ \vdots \\ \nabla f_n(\bm{x})^T\end{bmatrix} \\
+    Df(\bm{x}) = \begin{bmatrix}\nabla f_1(\bm{x})^T \\ \vdots \\ \nabla f_n(\bm{x})^T\end{bmatrix} \\
+    Df(\bm{x}) = \begin{bmatrix}\bm{A}_1^T \\ \vdots \\ \bm{A}_n^T\end{bmatrix} = \bm{A} \\ 
+\end{align*}
+We know that Jacobian matrix is the differentiation of \(f:\R^n \to \R^m\).
+
+So In conclusion, the Jacobian matrix is \(\bm{A}\).
+
+(b) 
+Assume that:
+\begin{align*}
+    \bm{X} &= \bm{x} \bm{x}^T= [x_i x_j]_{i = 1, j = 1}^{n, n}, \bm{X} \in \R^{n \times n} \\ 
+    \bm{X}_i &= [x_ix_j]_{j=1}^n, \bm{X}_i \in \R^n\\
+    f_i(\bm{x}) &= \langle \bm{X}_i, \bm{a} \rangle \\
+\end{align*}
+if \(i = k\)
+\begin{align*}
+   \frac{\partial f_i}{x_k} = \sum_{j=1}^n x_ja_j + x_ka_k
+\end{align*}
+if \(i \ne k\)
+\begin{align*}
+    \frac{\partial f_i}{\partial x_k}  = x_ia_k
+\end{align*}
+\begin{align*}
+    f(\bm{x}) &= \begin{bmatrix}
+        f_1(\bm{x}) \\
+        \vdots \\
+        f_n(\bm{x})
+    \end{bmatrix} \\
+    Df(\bm{x}) &= \begin{bmatrix}
+        \nabla f_1(\bm{x})^T \\
+        \vdots \\
+        \nabla f_n(\bm{x})^T     
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        x_1a_1 & x_1a_2 & \cdots & x_1a_n \\
+        \vdots & \vdots & \cdots & \vdots\\ 
+        x_na_1 & x_na_2 & \cdots & x_na_n \\
+    \end{bmatrix} + \begin{bmatrix}
+        \sum_{j=1}^{n}x_ja_j & 0 & \cdots & 0 \\
+        \vdots & \vdots & \cdots & \vdots\\ 
+        0 & 0 & \cdots &\sum_{j=1}^{n}x_ja_j 
+    \end{bmatrix} = \bm{x}\bm{a}^T + (\bm{x}^T\bm{a})\bm{I}
+\end{align*}
+
+
 
 
 \section*{Question 3:}
-3. Let \(f : \R^2 \to \R\), \(g : \R^2 \to \R^2\), \(g(x, y) = (x^2y, x-y)\) and \(h = f \circ g = f(g(x, y))\). Find \(\frac {\partial h}{\partial x}|_{x=1, y=2}\) if
+3. Let \(f : \R^2 \to \R\), \(g : \R^2 \to \R^2\), \(g(x, y) = (x^2y, x-y)\) and \(h = f \circ g = f(g(x, y))\). Find \(\frac {\partial h}{\partial x}|_{x=2, y=-1}\) if
 \(\frac{\partial f}{\partial x}|_{x=2, y=-1} = 3\) and \(\frac{\partial f}{\partial y}|_{x=2, y=-1} = -2\). (Hint: use the chain rule)
 
-\subsection{Answer :}
+\subsection*{Answer :}
+We know that:
+\begin{align*}
+    g_1(x, y) &= x^2y \\
+    g_2(x, y) &= x - y \\
+    h(x, y) &= f(g_1(x, y), g_2(x, y)) \\
+    \frac{\partial h}{\partial x} &= \frac{\partial f}{\partial x} \frac{\partial g_1}{\partial x} + \frac{\partial f}{\partial y} \frac{\partial g_2}{\partial x} \\
+    \frac{\partial h}{\partial x}|_{x=1, y=2} &= 3\frac{\partial g_1}{\partial x} -2\frac{\partial g_2}{\partial x} = 3 * (2xy)|_{x=2, y=-1} - 2 * 1 = -14
+\end{align*}
 
 
 \section*{Question 4:}
@@ -136,6 +200,34 @@ Let \(a, a_1, a_2\) be real number.
 (ii) Prove the following identity:
 \begin{align*}
     f_1(t-a_1) * f_2(t-a_2) = f(t-a_1-a_2).
+\end{align*}
+
+
+\subsection*{Answer :}
+(i) 
+Prove \(f_1(t - a) * f_2(t) = f(t - a)\):
+\begin{align*}
+    f(t - a) &= \int_{-\infty}^{+\infty}f_1(t - s - a)f_2(s)ds \\
+    f_1'(t) &= f_1(t - a) \\
+    f(t - a) &= \int_{-\infty}^{+\infty}f_1'(t - s)f_2(s)ds = f_1'(t)*f_2(t) = f_1(t - a)*f_2(t) \\
+\end{align*}
+Prove \(f_1(t) * f_2(t - a) = f(t - a)\):
+\begin{align*}
+    f(t - a) &= \int_{-\infty}^{+\infty}f_1(t - s - a)f_2(s)ds \\
+    f_2'(t) &= f_2(t - a) \\
+    f(t - a) &= \int_{-\infty}^{+\infty}f_1(t - (s+a))f_2(s)d(s + a) = \int_{-\infty}^{+\infty}f_1(t - (s+a))f_2'(s + a)d(s + a) \\
+    &= \int_{-\infty}^{+\infty}f_1(t - u)f_2'(u)du \\
+    &= f_1(t)*f_2'(t)  \\
+    &= f_1()*f_2(t-a) \\
+\end{align*}
+
+(ii)
+\begin{align*}
+    f_1(t-a_1) * f_2(t-a_2) &= \int_{-\infty}^{+\infty}f_1(t-a_1 - s)f_2(s-a_2)ds\\
+    &= \int_{-\infty}^{+\infty}f_1(t-a_1 - s)f_2(s-a_2)d(s - a_2) \\
+    &= \int_{-\infty}^{+\infty}f_1(t-a_1 - a_2 - (s - a_2))f_2(s-a_2)d(s - a_2) \\
+    &= \int_{-\infty}^{+\infty}f_1(t-(a_1 + a_2) - u)f_2(u)du \\
+    &=f(t-a_1-a_2).
 \end{align*}
 
 \section*{Question 5:}
