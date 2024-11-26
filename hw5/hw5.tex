@@ -234,12 +234,58 @@ Prove \(f_1(t) * f_2(t - a) = f(t - a)\):
 5. Let \(V_1\) and \(V_2\) be two Hilbert spaces with the inner products \(\langle \cdot, \cdot \rangle_{V_1}\), and \(\langle \cdot, \cdot\rangle_{V_2}\), respectively.
 Let \(T \in \mathcal{L}(V_1, V_2)\), i.e., \(T: V_1 \to V_2\) be a bounded linear operator. \\
 (a) Let \(S:V_2 \to V_1\) be an operator satisfying \(\langle T\bm{x}, \bm{y}\rangle_{V_2} = \langle \bm{x}, S\bm{y}\rangle_{V_1}\) for any \(\bm{x} \in V_1\) and \(\bm{y} \in V_2\).
-Prove that \(S\) is a bounded linear operator. (COnsequently, \(S\) is the adjoint of \(T\), i.e., \(S = T^*\)) \\
+Prove that \(S\) is a bounded linear operator. (Consequently, \(S\) is the adjoint of \(T\), i.e., \(S = T^*\)) \\
 (b) Prove that \((T^*)^* = T\). \\
 (c) Prove that \(\|T\| = \|T^*\|\).
 
 
 \subsection*{Answer}
+We know
+\begin{align}
+    \|\bm{A}\bm{x}\|_{V_2} \leq \|\bm{A}\|\|\bm{x}\|_{V_1}
+\end{align}
+We know, by using Cauchy–Schwarz inequality and (1):
+\begin{align*}
+    \langle \bm{T}\bm{x}, \bm{y}\rangle_{V_2}  \leq \|\bm{T}\bm{x}\|_{V_2}\|\bm{y}\|_{V_2} \leq \|\bm{T}\|\|\bm{x}\|_{V_1}\|\bm{y}\|_{V_2} \\
+\end{align*}
+We choose \(\bm{x}\) as \(\bm{S}\bm{y}\)
+\begin{align*}
+    \langle \bm{T}\bm{S}\bm{y}, \bm{y}\rangle_{V_2} &= \langle \bm{S}\bm{y}, \bm{S}\bm{y}\rangle_{V1} = \|\bm{S}\bm{y}\|_{V_1}^2   \leq \|\bm{T}\bm{S}\bm{y}\|_{V_2}\|\bm{y}\|_{V_2} \leq \|\bm{T}\|\|\bm{S}\bm{y}\|_{V_1}\|\bm{y}\|_{V_2} \\
+    \|\bm{S}\bm{y}\|_{V_1}^2 &\leq \|\bm{T}\|\|\bm{S}\bm{y}\|_{V_1}\|\bm{y}\|_{V_2}  \\
+    \|\bm{S}\bm{y}\|_{V_1} &\leq \|\bm{T}\|\|\bm{y}\|_{V_2}  \leq \infty
+\end{align*}
+Thus, S is a bounded linear operator.
+
+(b) 
+We know:
+\begin{align*}
+    \langle \bm{T}\bm{x}, \bm{y}\rangle_{V_2} &= \langle \bm{x}, \bm{T}^*\bm{y}\rangle_{V_1} 
+\end{align*}
+\begin{align*}
+    \langle \bm{x}, \bm{T}^*\bm{y}\rangle_{V_1} &= \langle (\bm{T}^*)^*\bm{x}, \bm{y}\rangle_{V_2} \\
+    \langle \bm{T}\bm{x}, \bm{y}\rangle_{V_2} &= \langle (\bm{T}^*)^*\bm{x}, \bm{y}\rangle_{V_2} \\
+    \bm{T} &= (\bm{T}^*)^*
+\end{align*}
+
+(c)
+Proof of 
+\begin{align*}
+    \|\bm{T}\| = \sup_{\|\bm{y}\| = 1}\|\bm{T}\bm{y}\| = \sup_{\|\bm{y}\| = 1}\sup_{\|\bm{x}\| = 1}\langle \bm{x}, \bm{T}\bm{y} \rangle
+\end{align*}
+By using Cauchy Schwarz inequality
+\begin{align*}
+    \langle \bm{x}, \bm{T}\bm{y} \rangle &\leq \|\bm{x}\|\|\bm{T}\bm{y}\| \\
+    \|\bm{x}\| &= 1 \\
+    \langle \bm{x}, \bm{T}\bm{y} \rangle &\leq \|\bm{T}\bm{y}\| \\
+    \|\bm{T}\bm{y}\| &= \sup_{\|x\| = 1} \langle \bm{x}, \bm{T}\bm{y} \rangle \\
+    \|\bm{T}\| &= \sup_{\|\bm{y}\| = 1}\|\bm{T}\bm{y}\| = \sup_{\|\bm{y}\| = 1}\sup_{\|\bm{x}\| = 1}\langle \bm{x}, \bm{T}\bm{y} \rangle
+\end{align*}
+Then
+\begin{align*}
+    \|\bm{T}^*\| &= \sup_{\|\bm{y}\|=1} \|\bm{T}^* \bm{y}\| = \sup_{\|\bm{y}\|=1}  \sup_{\|\bm{x}\|=1}\langle \bm{x}, \bm{T}^*\bm{y}\rangle \\
+    &= \sup_{\|\bm{y}\| = 1} \sup_{ \|\bm{x}\| = 1} \langle \bm{T}\bm{x}, \bm{y} \rangle = \sup_{\|\bm{x}\| = 1} \sup_{ \|\bm{y}\| = 1} \langle \bm{T}\bm{x}, \bm{y} \rangle = \sup_{\|\bm{x}\|=1}\|\bm{T}\bm{x}\| = \|\bm{T}\|
+\end{align*}
+In conclusion, \(\|\bm{T}^*\| = \|\bm{T}\|\)
 
 \section*{Question 6:}
 Consider the vector space \(\ell_{\infty}\) equipped with the norm \(\|\cdot\|_{\infty}\). Define the operator \(T: \ell_{\infty} \to \ell_{\infty}\) by \(T(\{x_n\}_{n \in N}) = \{y_n\}_{n\in N}\) where \(y_n = x_{n+1}\). \\
