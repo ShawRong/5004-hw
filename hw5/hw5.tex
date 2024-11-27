@@ -129,8 +129,11 @@ We know that:
 \end{align*}
 We know that Jacobian matrix is the differentiation of \(f:\R^n \to \R^m\).
 
+\noindent
 So In conclusion, the Jacobian matrix is \(\bm{A}\).
 
+\vspace{1cm}
+\noindent
 (b) 
 Assume that:
 \begin{align*}
@@ -193,10 +196,14 @@ Let \(f(t) = f_1(t) * f_2(t)\) be the convolution of two functions \(f_1(t)\) an
 \end{align*}
 Let \(a, a_1, a_2\) be real number.
 
+\vspace{1cm}
+\noindent
 (i) Prove the following identity:
 \begin{align*}
     f_1(t-a)*f_2(t) = f_1(t) * f_2(t-a) = f(t-a).
 \end{align*}
+
+\noindent
 (ii) Prove the following identity:
 \begin{align*}
     f_1(t-a_1) * f_2(t-a_2) = f(t-a_1-a_2).
@@ -221,6 +228,8 @@ Prove \(f_1(t) * f_2(t - a) = f(t - a)\):
     &= f_1()*f_2(t-a) \\
 \end{align*}
 
+\vspace{1cm}
+\noindent
 (ii)
 \begin{align*}
     f_1(t-a_1) * f_2(t-a_2) &= \int_{-\infty}^{+\infty}f_1(t-a_1 - s)f_2(s-a_2)ds\\
@@ -240,7 +249,7 @@ Prove that \(S\) is a bounded linear operator. (Consequently, \(S\) is the adjoi
 
 
 \subsection*{Answer}
-We know
+(a)We know
 \begin{align}
     \|\bm{A}\bm{x}\|_{V_2} \leq \|\bm{A}\|\|\bm{x}\|_{V_1}
 \end{align}
@@ -256,6 +265,8 @@ We choose \(\bm{x}\) as \(\bm{S}\bm{y}\)
 \end{align*}
 Thus, S is a bounded linear operator.
 
+\vspace{1cm}
+\noindent
 (b) 
 We know:
 \begin{align*}
@@ -267,6 +278,8 @@ We know:
     \bm{T} &= (\bm{T}^*)^*
 \end{align*}
 
+\vspace{1cm}
+\noindent
 (c)
 Proof of 
 \begin{align*}
@@ -294,4 +307,40 @@ Consider the vector space \(\ell_{\infty}\) equipped with the norm \(\|\cdot\|_{
 (c) Prove that \(\|T\|=1\).
 
 \subsection*{Answer}
+(a) Additivity: Proof: \\
+For any \(\{x_n\}_{n \in \N} , \{z_n\}_{n \in \N} \in \ell_\infty\)
+\begin{align*}
+    &T(\{x_n\}_{n\in\N} + \{z_n\}_{n\in\N}) = T(\{x_n + z_n\}_{n\in\N}) = \\
+    &\{(x_n + z_n)_{n+1}\}_{n\in\N} = \{x_{n+1} + z_{n+1}\}_{n\in\N} = \{x_{n+1}\}_{n\in\N} + \{z_{n+1}\}_{n\in\N} = T(\{x_n\}_{n\in\N}) + T(\{z_n\}_{n\in\N})
+\end{align*}
+
+Homogeneity Proof: \\
+\begin{align*}
+    T(\alpha \{x_n\}_{n \in \N}) = T(\{\alpha x_n\}_{n \in \N}) = \{\alpha x_{n+1}\}_{n \in \N} = \alpha \{x_{n+1}\}_{n \in \N} = \alpha T(\{x_n\}_{n \in \N})
+\end{align*}
+
+\vspace{1cm}
+\noindent
+(b) 
+To prove \(T\) is bounded operator, we can prove, for a constance \(C\), that :
+\begin{align*}
+    &\|T(\{x_n\}_{n \in \N})\|_\infty \leq C\|\{x_n\}_{n \in \N}\|_\infty , \forall \{x_n\}_{n \in \N} \in \ell_\infty\\
+    &\|T(\{x_n\}_{n \in \N})\|_\infty = \sup_{n\in\N}|y_n| = \sup_{n\in\N}|x_{n+1}| \leq \sup_{n\in\N}|x_n| = \|\{x_n\}_{n\in\N}\|_{\infty} \\
+    &\|T(\{x_n\})\|_\infty \leq \|\{x_n\}\|_\infty
+\end{align*}
+In conclusion, \(T\) is a bounded operator.
+
+
+\vspace{1cm}
+\noindent
+(c)
+From (b), we know that \(\|T(\{x_n\})\|_\infty \leq \|\{x_n\}\|_\infty\), s.t. \(\|T\| \leq 1\). \\
+Consider the sequence \(\{x_n\}_{n \in \N} = \{ 1, 1, \cdots\} = \{x_{n+1}\}_{n\in\N}\)
+By definition, we know:
+\begin{align*}
+    &\|T\| \geq \frac{\|T(\{x_n\})\|_\infty}{\|\{x_n\}\|_\infty} = 1 \\
+    &1\leq\|T\| \leq 1
+\end{align*}
+Thus, we conclude that \(\|T\| = 1\)
+
 \end{document}
