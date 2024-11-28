@@ -184,7 +184,7 @@ We know that:
     g_1(x, y) &= x^2y \\
     g_2(x, y) &= x - y \\
     h(x, y) &= f(g_1(x, y), g_2(x, y)) \\
-    \frac{\partial h}{\partial x} &= \frac{\partial f}{\partial x} \frac{\partial g_1}{\partial x} + \frac{\partial f}{\partial y} \frac{\partial g_2}{\partial x} \\
+    \frac{\partial h}{\partial x}|_{x=1, y=2} &= \frac{\partial f}{\partial x}|_{x=2, y=-1} \frac{\partial g_1}{\partial x}|_{x=1, y=2} + \frac{\partial f}{\partial y}|_{x=2, y=-1} \frac{\partial g_2}{\partial x}|_{x=1, y=2} \\
     \frac{\partial h}{\partial x}|_{x=1, y=2} &= 3\frac{\partial g_1}{\partial x} -2\frac{\partial g_2}{\partial x} = 3 * (2xy)|_{x=1, y=2} - 2 * 1 = 10 
 \end{align*}
 
@@ -225,7 +225,7 @@ Prove \(f_1(t) * f_2(t - a) = f(t - a)\):
     f(t - a) &= \int_{-\infty}^{+\infty}f_1(t - (s+a))f_2(s)d(s + a) = \int_{-\infty}^{+\infty}f_1(t - (s+a))f_2'(s + a)d(s + a) \\
     &= \int_{-\infty}^{+\infty}f_1(t - u)f_2'(u)du \\
     &= f_1(t)*f_2'(t)  \\
-    &= f_1()*f_2(t-a) \\
+    &= f_1(t)*f_2(t-a) \\
 \end{align*}
 
 \vspace{1cm}
