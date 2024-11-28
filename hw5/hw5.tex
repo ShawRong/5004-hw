@@ -275,6 +275,9 @@ We know:
 \begin{align*}
     \langle \bm{x}, \bm{T}^*\bm{y}\rangle_{V_1} &= \langle (\bm{T}^*)^*\bm{x}, \bm{y}\rangle_{V_2} \\
     \langle \bm{T}\bm{x}, \bm{y}\rangle_{V_2} &= \langle (\bm{T}^*)^*\bm{x}, \bm{y}\rangle_{V_2} \\
+\end{align*}
+Therefore 
+\begin{align*}
     \bm{T} &= (\bm{T}^*)^*
 \end{align*}
 
@@ -288,9 +291,14 @@ Proof of
 By using Cauchy Schwarz inequality
 \begin{align*}
     \langle \bm{x}, \bm{T}\bm{y} \rangle &\leq \|\bm{x}\|\|\bm{T}\bm{y}\| \\
-    \|\bm{x}\| &= 1 \\
+\end{align*}
+Assume \(\|\bm{x}\| = 1\), s.t.
+\begin{align*}
     \langle \bm{x}, \bm{T}\bm{y} \rangle &\leq \|\bm{T}\bm{y}\| \\
-    \|\bm{T}\bm{y}\| &= \sup_{\|x\| = 1} \langle \bm{x}, \bm{T}\bm{y} \rangle \\
+    \|\bm{T}\bm{y}\| &= \sup_{\|x\| = 1} \langle \bm{x}, \bm{T}\bm{y} \rangle
+\end{align*}
+Therefore
+\begin{align*}
     \|\bm{T}\| &= \sup_{\|\bm{y}\| = 1}\|\bm{T}\bm{y}\| = \sup_{\|\bm{y}\| = 1}\sup_{\|\bm{x}\| = 1}\langle \bm{x}, \bm{T}\bm{y} \rangle
 \end{align*}
 Then
