@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1732803038.37332 "c:/Users/90586/Desktop/5004-hw/hw5/hw5.tex" "hw5.pdf" "hw5" 1732803039.0299 0
-  "c:/Users/90586/Desktop/5004-hw/hw5/hw5.tex" 1732803037 7854 d0d6c5afd485ace89f8ca69cb83a3dfd ""
+["pdflatex"] 1732803140.77325 "c:/Users/90586/Desktop/5004-hw/hw5/hw5.tex" "hw5.pdf" "hw5" 1732803141.51153 0
+  "c:/Users/90586/Desktop/5004-hw/hw5/hw5.tex" 1732803106 11844 ca82bc1b1ee7de75110b17a70f3087aa ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1726238174 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1726236892 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "c:/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1726236892 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -43,6 +43,7 @@
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1726236892 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1726236892 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1726236892 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
+  "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb" 1726236892 35479 2cca68718f15872e7cce1a8f6033b99b ""
   "c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1726236892 34694 870c211f62cb72718a00e353f14f254d ""
   "c:/texlive/2024/texmf-dist/tex/generic/iftex/iftex.sty" 1726238537 7237 bdd120a32c8fdb4b433cf9ca2e7cd98a ""
   "c:/texlive/2024/texmf-dist/tex/generic/iftex/ifvtex.sty" 1726238537 1057 525c2192b5febbd8c1f662c9468335bb ""
@@ -65,8 +66,8 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1726240920 5543950 2aa73a438b7054b2327b796fbe5f4275 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1726241051 3326055 9fb2e5b8b2da0010108fd762bfc00143 ""
   "c:/texlive/2024/texmf.cnf" 1726240900 713 e69b156964470283e0530f5060668171 ""
-  "hw5.aux" 1732803038 32 c81c40425fbb5e93b90fba65da0b5e61 "pdflatex"
-  "hw5.tex" 1732803037 7854 d0d6c5afd485ace89f8ca69cb83a3dfd ""
+  "hw5.aux" 1732803141 32 77e0dffd05b653a64f0caf3eb9bb454a "pdflatex"
+  "hw5.tex" 1732803106 11844 ca82bc1b1ee7de75110b17a70f3087aa ""
   (generated)
   "hw5.aux"
   "hw5.log"
