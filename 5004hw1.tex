@@ -1,0 +1,392 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,amssymb,scrextend}
+\usepackage{bm} %for bold
+
+\newcommand{\R}{\mathbb{R}}
+
+\let\newproof\proof
+\renewenvironment{proof}{\begin{addmargin}[1em]{0em}\begin{newproof}}
+{\end{newproof}\end{addmargin}\qed}
+
+\title{\Large MSBD5004 Mathematical Methods for Data Analysis \\ \large Homework 1}
+\author{RONG Shuo - 21126613}
+\date{September 2024}
+
+\begin{document}
+\maketitle
+
+\subsection*{Question 1:}
+1. Consider the vector space \( \mathbb{R}^n \). \\
+    (a) Check that $\|\bm{x} \|_\infty = \max_{1 \leq i \leq n}|x_i|$ is indeed a norm on \(\mathbb{R}^n\). \\
+    (b) Omitted\\
+    (c) Omitted\\
+
+\subsection*{Answer:}
+(a)
+\begin{proof}
+To show that \( \|\bm{x}\|_infty \) is a norm, we check the following properties:
+1.
+    \(\forall \bm{x} \in \mathbb{R}^n\), we have 
+    \[
+    \|\bm{x}\|_\infty = \max_{1 \leq i \leq n}|x_i| \geq 0.
+    \] 
+2.
+    Assume  \( \|\bm{x}\|_\infty = 0 \). Then, 
+    \[
+    \max_{1 \leq i \leq n} |x_i| = 0 \implies x_i = 0, \forall i \implies \bm{x} = \bm{0}.
+    \]
+3.
+    \(\forall \alpha \in \R\),
+    \[ |\alpha \cdot \bm{x}|_\infty = \max_{1 \leq i \leq n}|\alpha \cdot x_i| = |\alpha| \cdot \max_{1 \leq i \leq n}|x_i| = |\alpha| \cdot \|\bm{x}\|_\infty.
+    \] 
+4.
+    \(\forall \bm{x},\bm{y} \in \R^n\),
+    \[
+    \|\bm{x} + \bm{y}\|_\infty = \max_{1 \leq i \leq n}|x_i + y_i| \leq \max_{1 \leq i \leq n} (|x_i| + |y_i|) \leq \max_{1 \leq i \leq n} |x_i| + \max_{1 \leq i \leq n} |y_i| = \|\bm{x}\|_\infty + \|\bm{y}\|_\infty.
+    \]
+Thus, \( \|\bm{x}\|_\infty \) satisfies all properties of a norm.
+\end{proof}
+\\
+(b)
+\begin{proof}
+    we have 
+    \[ 
+    \max_{1 \leq i \leq n}|x_i| \leq \sum_{i=1}^n|x_i| \leq n \cdot \max_{1 \leq i \leq n}|x_i|
+    \]
+    s.t. 
+    \[
+    \|\bm{x}\|_\infty \leq \|\bm{x}\|_1 \leq n \cdot \|\bm{x}\|_\infty
+    \]
+\end{proof}
+\\
+(c)
+\begin{proof}
+    we have
+    \[
+    |\bm{x^Ty}| = |\sum_{i=1}^nx_i \cdot y_i| \leq \sum_{i=1}^n|x_i \cdot y_i| \leq \sum_{i=1}^n|x_i||y_i| \leq \sum_{i=1}^n(\max_{1 \leq i \leq n}|y_i|)\cdot|x_i|=\max_{1\leq i\leq n}|y_i|\cdot\sum_{i=1}^n|x_i|=\|\bm{x}\|_1\|\bm{y}\|_\infty
+    \]
+    s.t.
+    \[
+    \forall \bm{x, y} \in \R^n, |\bm{x}^T\bm{y}| \leq \|\bm{x}\|_1\|\bm{y}\|_\infty
+    \]
+\end{proof}
+
+%Q2
+\subsection*{Question 2:}
+2. For any \(\bm{A} \in \R^{m \times n}\), we have defined
+    \[
+    \|\bm{A}\|_2 = \max_{ \bm{x} \in \R ^n, \| \bm{x} \|_2 = 1}\|\bm{A}\bm{x}\|_2.
+    \]
+    (a)Prove that \(\|\cdot\|_2\) is a norm on \(\R^{m \times n}\). \\
+    (b)Prove that \(\|\bm{A}\bm{x}\|_2 \leq \|\bm{A}\|_2\|\bm{x}\|_2 \text{ for any } \bm{A} \in \R^{m \times n} \text{ and } \bm{x} \in \R^n. \)\\
+    (c)Prove that \(\|\bm{A}\bm{B}\|_2 \leq \|\bm{A}\|_2\|\bm{B}\|_2 \text{ for all } \bm{A} \in \R^{m \times n} \text{ and } \bm{B} \in \R^{n \times p}.\)\\
+\subsection*{Answer:}
+(a)
+\begin{proof}
+    1. \(\forall \bm{A} \in \R^{m \times n}\)
+    \[
+    \|\bm{A}\|_2 = \max_{\bm{x} \in \R^n, \|\bm{x}\|_2 = 1} \|\bm{A}\bm{x}\|_2 \geq 0,
+    \]
+    since \(\|\bm{A}\bm{x}\|_2 \) is non-negative for all \(\bm{x}\). \\
+    \\
+    2. If \(\|\bm{A}\|_2\) = 0, then:
+    \[
+    \max_{\bm{x} \in \R^n, \|\bm{x}\|_2 = 1} \|\bm{A}\bm{x}\|_2 = 0 \implies \|\bm{A}\bm{x}\|_2 = 0 ,\forall \bm{x},
+    \]
+    which means \( \bm{A}\bm{x} = \bm{0}, \forall \bm{x} \). \\
+    Choossing \(\bm{x}\) as the standard basis vectors(e.g. \(e_1 = [1, 0, 0, ...], e_i = [0, ..., 1, 0, ...]\)), we conclude that \(\bm{A} = \bm{0}\).\\
+    Conversely, if \(\bm{A} = \bm{0}\), then clearly \(\|\bm{A}\|_2 = 0\) \\
+    \\
+    3.
+    For any scalar \(\alpha\),
+    \[
+    \|\alpha \bm{A}\|_2 = \max_{\bm{x} \in \R^n, \|\bm{x}\|_2 = 1} \|\alpha \bm{A}\bm{x}\|_2 = \max_{\bm{x} \in \R^n, \|\bm{x}\|_2 = 1} |\alpha| \| \bm{A}\bm{x}\|_2 = |\alpha| \max_{\bm{x} \in \R^n, \|\bm{x}\|_2 = 1} \| \bm{A}\bm{x}\|_2 = |\alpha|\|\bm{A}\|_2.
+    \]
+    \\
+    4.
+    For any matrices \(\bm{A}, \bm{B}\):
+    \[
+    \|\bm{A} + \bm{B}\|_2 = \max_{\bm{x} \in \R^n, \|\bm{x}\|_2 = 1} \|\bm{A}\bm{x} + \bm{B}\bm{x}\|_2
+    \]
+    By the triangle inequality for the \(\|\bm{x}\|_2\) norm: \\
+    \[
+    \|\bm{A}\bm{x} + \bm{B}\bm{x}\|_2 \leq \|\bm{A}\bm{x}\|_2 + \|\bm{B}\bm{x}\|_2.
+    \]
+    Thus,
+    \[
+    \|\bm{A} + \bm{B}\|_2 \leq \max_{\bm{x} \in \R^n, \|\bm{x}\|_2 = 1} \|\bm{A}\bm{x}\|_2 + \max_{\bm{x} \in \R^n, \|\bm{x}\|_2 = 1} \|\bm{B}\bm{x}\|_2 = \|\bm{A}\|_2 + \|\bm{B}\|_2
+    \]
+    \\
+    5. Conclusion
+    Since all four properties of norms are satisfied, we conclude that \(\|\cdot\|_2\) is a norm on \(\R^{m \times n}\). 
+\end{proof}
+
+(b)
+\begin{proof}
+    **\(\|\bm{x}\|_2 \neq 0\)**: \\
+    for any \(\bm{x} \in \R^n, \) we know:
+    \[
+    \|\bm{x}\| \neq 0 \implies \frac{\bm{x}}{\|\bm{x}\|_2} \text{ is a unit vector: } \bm{u}
+    \]
+    Since \(\|\bm{u}\| = 1\), we have:
+    \[
+    \|\bm{A} (\frac{\bm{x}}{\|\bm{x}\|_2})\|_2 = \frac{1}{\|\bm{x}\|_2}\|\bm{A}\bm{x}\|_2 = \|\bm{A}\bm{u}\|_2 \leq \|\bm{A}\|_2 \implies \|\bm{A}\bm{x}\|_2 \leq \|\bm{A}\|_2\|\bm{x}\|_2
+    \]
+
+    **\(\|\bm{x}\|_2 = 0\)**:
+    we have:
+    \[
+    \|\bm{A}\bm{0}\|_2 = 0 = \|\bm{A}\|_2 \cdot 0
+    \]
+
+    **Conclusion**:
+    \[
+    \forall \bm{A} \in \R^{m \times n} \text{ and } \bm{x} \in \R^n :
+    \|\bm{A}\bm{x}\|_2 \leq \|\bm{A}\|_2\|\bm{x}\|_2
+    \]
+
+    
+\end{proof}
+
+(c)
+\begin{proof}
+    For all matrix \( \bm{M} \in \R^{n \times m}\), we have:
+    \[
+    \|\bm{M}\bm{x}\|_2 \leq \|\bm{M}\|_2\|\bm{x}\|_2 , \forall \bm{x} \in \R^m \quad (1)
+    \]
+    and 
+    \[
+    \|\bm{M}\bm{x}\|_2 \leq \|\bm{M}\|_2\|\bm{x}\|_2 = \|\bm{M}\|_2, \forall \bm{x} \in \R^m \text{ and } \|\bm{x}\|_2 = 1 \quad (2)
+    \]
+    Consider \(\bm{B} \in \R^{n \times p}, \bm{x} \in \R^p \text{ and } \|\bm{x}\|_2 = 1, \text{ as } \bm{M}, \bm{x} \) according formula (2), s.t.
+    \[
+    \|\bm{B}\bm{x}\|_2 \leq \|\bm{B}\|_2
+    \]
+    Consider \(\bm{A} \in \R^{m \times n}, \bm{B}\bm{x} \in \R^n \text{ as } \bm{M}, \bm{x} \) according formula (1), s.t.
+    \[
+    \|\bm{A}\bm{B}\bm{x}\|_2 \leq \|\bm{A}\|_2\|\bm{B}\bm{x}\|_2 \leq \|\bm{A}\|_2\|\bm{B}\|_2
+    \]
+    So we can conclude:
+    \[
+    \|\bm{A}\bm{B}\|_2 = \max_{\bm{x} \in \R^p, \|\bm{x}\|_2 = 1}\|\bm{A}\bm{B}\bm{x}\|_2 \leq \|\bm{A}\|_2\|\bm{B}\|_2, \forall \bm{A} \in \R^{m \times n} \text{ and } \bm{B} \in \R^{n \times p}
+    \]
+\end{proof}
+
+\subsection*{Question 3:}
+3. For any \(\bm{A} \in \R^{m \times n}, \text{ we define the Frobenius norm } \|\bm{A}\|_F = \left( \sum_{i=1}^m \sum_{j=1}^n a_{i, j}^2 \right)^{1/2} \). Prove that
+    \[
+    \|\bm{A}\|_2 \leq \|\bm{A}\|_F \leq \sqrt{n}\|\bm{A}\|_2
+    \]
+\subsection*{Answer:}
+\begin{proof}
+    **To prove \(\|\bm{A}\|_2 \leq \|\bm{A}\|_F\)** \\
+    We have,
+    \[
+    \|\bm{A}\|_2 = \max_{\bm{x} \in \R^n, \|\bm{x}\|_2 = 1}\|\bm{Ax}\|_2
+    \]
+    Assume \(\text{argmax} (\|\bm{A} \|_2) = \bm{x}\), \(\bm{x} = [x_1 \cdots x_j \cdots x_n]\)
+    \[
+    \|\bm{A}\|_2^2 = \sum_{i=1}^m \left(\sum_{j=1}^na_{i, j} x_{j}\right)^2
+    \]
+    We know:
+    \[
+    \left( \sum_{i=1}^n a_i b_i \right)^2 \leq \sum_{i=1}^n a_i^2 \sum_{i=1}^n b_i^2
+    \]
+    \[
+    \left(\sum_{j=1}^n a_{i, j}x_j \right)^2 \leq \sum_{j=1}^na_{i,j}^2 \sum_{j=1}^n x_j^2 = \sum_{j=1}^n a_{i,j}^2
+    \]
+    s.t.:
+    \[
+    \|\bm{A}\|_2^2 \leq \sum_{i=1}^m \sum_{j=1}^n a_{i, j}^2 = \|\bm{A}\|_F^2
+    \]
+    s.t.:
+    \[
+    \|\bm{A}\|_2 \leq \|\bm{A}\|_F
+    \]
+    **To prove \(\|\bm{A}\|_F \leq \sqrt{n}\|\bm{A}\|_2\) **    \\
+    Let \(\bm{e}_i\) be the standard basis vector in \(\R^n\). \\
+    \[
+    \|\bm{A}\|_F^2 = \sum_{i=1}^n \|\bm{Ae}_i\|_2^2
+    \]
+    We know:
+    \[
+    \|\bm{Ae}_i\|_2^2 \leq \|\bm{A}\|_2^2
+    \]
+    \[
+    \sum_{i=1}^n\|\bm{Ae}_j\|_2^2 \leq n\|\bm{A}\|_2^2
+    \]
+    s.t.
+    \[
+    \|\bm{A}\|_F^2 \leq n\|\bm{A}\|_2^2
+    \]
+    \[
+    \|\bm{A}\|_F \leq \sqrt{n}\|\bm{A}\|_2
+    \]
+\end{proof}
+
+\subsection*{Question 4:}
+4. A magic square \(\bm{M}_n\) is a \(n \times n\) matrix containing the integers from 1 to \(n^2\) whose row and column sums are all the same. For example: \\
+\[
+\begin{bmatrix}
+    16 & 2 & 3 & 13 \\
+    5 & 11 & 10 & 8 \\
+    9 & 7 & 6 & 12 \\
+    4 & 14 & 15 & 1
+\end{bmatrix}
+\]
+This magic square appears in the Renaissance engraving \textit{Melencolia I} by the German painter, engraver, and amateur mathematician Albrecht Durer (1471 -1528). \\
+Let \(a_n\)denote the magic constant of \(\bm{M}_n\), so that \(a_n = n(n^2 + 1)/2\). Let \(\bm{d}\) denote a vector in \(\R^n\) with each element equal to 1.\\
+(a) Determine \(\bm{M}_n\bm{d}\) and \(\bm{d}^T\bm{M}_n\). Conclude that \(a_n\) is an eigenvalue of \(\bm{M}_n\). \\
+(b) Show that the row and column sums of \(\bm{M}_n^2\) are all the same. \\
+(c) Determine \(\|\bm{M}_n\|_2\).
+\subsection*{Answer:}
+(a)
+\begin{proof}
+    Assume that \(\bm{M}_n = [\bm{c}_1 \cdots \bm{c}_i \cdots \bm{c}_n]\), each \(\bm{c}\) indicates the column of \(\bm{M}_n\). \\
+    We know:
+    \[
+    \bm{M}_n\bm{d} = [\bm{c}_1 \cdots \bm{c}_n ] \bm{d} = \sum_{i=1}^n \bm{c}_i = a_n\bm{d}
+    \]
+    Assume that \(\bm{M}_n = [\bm{r}_1 \cdots \bm{r}_i \cdots \bm{r}_n]^T\), each \(\bm{r}\) indicates the row of \(\bm{M}_n\). \\
+    \[
+    \bm{d}^T \bm{M}_n = \bm{d}^T [\bm{r}_1 \cdots \bm{r}_n]^T =  a_n\bm{d}^T
+    \]
+    Since \(\bm{M}_n\bm{d} = a_n\bm{d} \) , s.t. \(a_n\) is an eigenvalue of \(\bm{M}_n\) with an eigenvector \(\bm{d}\).  \\
+    Since:
+    \[
+        \bm{d}^T\bm{M}_n =  a_n\bm{d}^T
+    \]
+    We can also conclude that \(a_n\) is an eigenvalue with a left eigenvector.
+
+\end{proof}
+
+(b)
+\begin{proof}
+    We know for each row in \(\bm{M}_n^2\), it can be expressed by:
+    \[
+    \bm{r}_i\bm{M}_n
+    \]
+    s.t. the sum of the rows can be expressed by:
+    \[
+    \bm{r}_i\bm{M}_n\bm{d} = \bm{r_i} a_n \bm{d} = a_n \sum_{j=1}^nr_{ij} = a_n^2
+    \]
+    We know for each column in \(\bm{M}_n^2\), it can be expressed by:
+    \[
+    \bm{M}_n^T\bm{c}_i
+    \]
+    s.t. the sum of the column can be expressed by:
+    \[
+    \bm{d}^T\bm{M}_n^T\bm{c}_i = a_n^2
+    \]
+    In Conclusion: the row and the column sums of \(\bm{M}_n^2\) are all the same as \(a_n^2\).
+\end{proof}
+
+(c)
+\begin{proof}
+We know, for every element \(c_{ij}\) in \(\bm{M}_n\):
+\[
+    \|\bm{M}_n\|_2^2 \leq \|\bm{M}_n\|_F^2 = \sum_{j=1}^n\sum_{i=1}^nc_{ij}^2
+\]
+We know that \(\bm{M}_n\) contains the integers from 1 to \(n^2\), s.t.:
+\[
+    \|\bm{M}_n\|_F^2 = \sum_{j=1}^n\sum_{i=1}^n c_{ij}^2 = 1^2 + 2^2 + \cdots + (n^2)^2 = \frac {n^2(n^2+1)(2n^2+1)}{6}
+\]
+And we know:
+\[
+    a_n^2 = \frac{n^2(n^2+1)^2}{4}
+\]
+And:
+\[
+    \frac{a_n^2}{\|\bm{M}_n\|_F^2} = \frac{3}{2} \cdot \frac{n^2+1}{2n^2+1} = \frac{3}{2} \cdot (1 - \frac{1}{2+\frac{1}{n^2}}) \geq \lim_{n^2 \to \infty} \frac{3}{2} \cdot (1 - \frac{1}{2+\frac{1}{n^2}}) = 1
+\]
+s.t.:
+\[
+    a_n^2 \geq \|\bm{M}_n\|_F^2 \geq \|\bm{M}_n\|_2^2
+\]
+s.t.:
+\[
+    \|\bm{M}_n\|_2   \leq a_n
+\]
+And:
+\[
+    \frac{\|\bm{M}_n\bm{d}\|_2}{\|\bm{d}\|_2} = \frac{\|a_n\bm{d}\|_2}{\|\bm{d}\|_2} = a_n
+\]
+s.t.:
+\[
+    \|\bm{M}_n\|_2 = a_n
+\]
+\end{proof}
+
+\subsection*{Question 5:}
+5. Let \(a_1, a_2, \cdots, a_m\) be \(m\) given real numbers. Prove that a median of \(a_1, a_2, \cdots, a_m\) minimizes
+\[
+    \sum_{i=1}^m|a_i - b|
+\]
+over all \(b \in \R\) (\textit{As we discussed in the lecture, this result is curcial for deriving the K-medians algorithm in clustering.})
+\subsection*{Answer:}
+\begin{proof}
+Suppose we order this sequence, and have \(a_1 \leq a_2 \leq \cdots \leq a_m\) For \(b \in \R \text{ and } a_1 \leq a_k \leq b \leq b + d \leq a_{k+1}\leq a_m\) in the ascending ordered sequence \(a_1, \cdots, a_m\), we have:
+\[
+    f(b + d) = \sum_{i=1}^m|a_i - b - d| = \sum_{i=1}^{k}(b + d -a_i) + \sum_{i=k+1}^m(a_i - b - d)
+\]
+\[
+    = \sum_{i=k+1}^m (a_i - b) + \sum_{i=1}^{k}(b - a_i) + (2k - m)d = f(b) + (2k-m)
+\]
+\[
+    f(b + d) - f(b) = (2k - m)d
+\]
+We know for \(f(b)\), \(2k < m\), \(f(b)\) is descending, and \(f(b)\) get the minimum when \(b = a_{k+1}\). 
+When \(2k > m\), \(f(b)\) is ascending, and when \(b = a_k\), \(f(b)\) get the minimum. \\
+
+And when \(m\) is even, \(k = \frac m 2\), \(f(b)  \text{ to be minimum, when } a_{\frac m 2 } \leq b \leq a_{\frac m 2 + 1}\) \\
+And when \(m\) is odd,  \(k = \frac {m + 1}2\), \(f(b) \text{ to be minimum, when } b = a_{\frac {m+1} 2 } \). \(k = \frac{m - 1}{2} \text{to be the same.}\) \\
+And when b is the median of this sequence, it satisfies these inequations. \\
+
+For \(b < a_1\), we know \(f(b) > f(a_1)\) all the time.\\
+For \(b > a_n\), we know \(f(b) > f(a_n)\) all the time. \\
+We can conclude that a median of this sequence minimizes \(\sum_{i=1}^m|a_i - b|\)
+
+\end{proof}
+
+\subsection*{Question 6:}
+6. Suppose that the vector \(\bm{x}_1, \cdots, \bm{x}_N\) in \(\R^n\) are clustered using the \textit{K}-means algorithm, with group representative \(\bm{z}_1, \cdots \bm{z}_k\). \\
+(a) Suppose the original vectros \(\bm{x}_i\) are nonnegative, \textit{i.e.}, their entries are nonnegative. Explain why the representative \(\bm{z}_j\) output by the \textit{K}-means algorithm are also nonnegative. \\
+(b) Suppose the original vectors \(\bm{x}_i\) represent proportions, \textit{i.e.}, their entries are nonnegative and sum to one. (This is the case when \(\bm{x_i}\) are word count hisograms, for example.) Explain why the representatives \(\bm{z}_j\) output by the \textit{K}-means algorithm are also represent proportions (\textit{i.e.}, their entries are nonnegative and sum to one). \\
+(c)Suppose the original vectors \(\bm{x}_i\) are Boolean, \textit{i.e.}, their entries are either 0 or 1. Give an interpretation of \((\bm{z}_j)_i\), the \textit{i}-th entry of the \textit{j} group representative.
+\subsection*{Answer:}
+(a)
+\begin{proof}
+    We know:
+    \[
+        \bm{z}_j = \frac {\sum_{\bm{x}_i \in G_j}\bm{x}_i} {\text{Count}(G_j)} \text{ where } G_j = \{\bm{x} | \text{the representative of }\bm{x} \text{ is }\bm{z}_j, \bm{x} \in \{\bm{x}_1, \cdots, \bm{x}_N\}\}
+    \]
+    According, \(\bm{x}_i\) is nonnegative. We know:
+    \[
+        \sum_{\bm{x}_i \in G_j}\bm{x}_i \text{ is nonnegative. }
+    \]
+    s.t.    \(\bm{z}_j\) is nonnegative.
+\end{proof}
+
+(b)
+\begin{proof}
+    We know:
+    \[
+        \bm{z}_j = \frac {\sum_{\bm{x}_i \in G_j}\bm{x}_i}  {\text{Count}(G_j)}
+    \]
+    \[
+        \sum_{m = 1}^nz_m = \frac {1}{\text{Count}(G_j)} \sum_{\bm{x}_i \in G_j}\sum_{m=1}^nx_m = \frac{1}{\text{Count}(G_j)} \cdot \text{Count}(G_j) = 1
+    \]
+    We know \(\bm{z}_j\) is nonnegative, according to (a). And \(\bm{z}_j\) represents proportions, too.
+    
+\end{proof}
+
+(c)
+\begin{proof}
+    \[
+        (\bm{z}_j)_i = \frac {1}{\text{Count}(G_j)} \sum_{\bm{x}_i \in G_j} (\bm{x}_i)_i = \frac{\sum_{\bm{x}_i \in G_j (\bm{x}_i)_i = 1}1}{\text{Count}(G_j)} = \frac{\text{CountOfTrue}}{\text{CountOfTrue} + \text{CountOfFalse}}
+    \]
+    We can conclude that \((\bm{z}_j)_i\) represents the proportions of true in \(\{(\bm{x_i})_i| \bm{x}_i \in G_j\}\)
+    
+\end{proof}
+\end{document}
